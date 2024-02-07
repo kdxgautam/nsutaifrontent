@@ -1,12 +1,18 @@
 
 import './App.css';
-import Frame2 from "./pages/frame2"
+import Navbar from './components/Navbar';
+import Card from './components/cart';
+import Hero from './components/hero';
+import Hero2 from './components/hero2';
 
 function App() {
   return (
-    <>
-    <Frame2/>
-    </>
+    <main className='p-3'>
+    <Navbar/>
+    <Hero/>
+    <Hero2/>
+    <Card/>
+    </main>
   );
 }
 

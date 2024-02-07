@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,4 +11,19 @@ body {
 ::before,
 ::after {
   border-width: 0;
+}
+body{
+  width: 100%;
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    #030612,
+    #272933 24.01%,
+    #33353e 52.01%,
+    #242731 75.01%,
+    #050814
+  );
+  height:100%;
+  background-position:cover;
+  background-repeat: no-repeat;
 }
