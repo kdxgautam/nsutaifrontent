@@ -2,6 +2,7 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import Card from './components/cart';
+import Footer from './components/footer';
 import Hero from './components/hero';
 import Hero2 from './components/hero2';
 
@@ -11,7 +12,9 @@ function App() {
     <Navbar/>
     <Hero/>
     <Hero2/>
+    {/* render card container here , inside cart container add cards using map  */}
     <Card/>
+    <Footer/>
     </main>
   );
 }
