@@ -3,7 +3,7 @@ import React from 'react'
 const Navbar = () => {
   return (
     
-      <nav className='border border-white   px-2 w-[98%] items-end shadow-xl text-white flex justify-between no-underline '>
+      <nav className='sticky top-0 border border-white   px-2 w-[98%] items-end shadow-xl text-white flex justify-between no-underline '>
         <div className='flex'>
           <img src="/nsutailogo.png" alt="logo" className='w-[5rem] ' />
         </div>
