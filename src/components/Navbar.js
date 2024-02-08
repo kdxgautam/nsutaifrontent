@@ -5,7 +5,7 @@ const Navbar = () => {
     
       <nav className='border border-white   px-2 w-[98%] items-end shadow-xl text-white flex justify-between no-underline '>
         <div className='flex'>
-          <img src="/nsutailogo.png" alt="logo" className='w-[5rem] ' />
+          <img src="/images/nsutailogo.png" alt="logo" className='w-[5rem] ' />
         </div>
         <ul className='flex gap-3 list-none w-1/2 justify-between'>
           <li className='mx-5 cursor-pointer w-1/5  text-[1.1rem] font-light '>Home</li>
