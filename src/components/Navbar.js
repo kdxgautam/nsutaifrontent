@@ -1,33 +1,48 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Button from './Button'
+import { GiHamburgerMenu } from "react-icons/gi";
+import MobileNavbar from './MobileNavbar';
 
 const Navbar = () => {
+  const toggleNav=()=>{
+    setshowMobileNav(!showMobileNav)
+  }
+  const [showMobileNav,setshowMobileNav] = useState(false)
   return (
-    
-      <nav className='border border-white   px-2 w-[98%] items-end shadow-xl text-white flex justify-between no-underline '>
+    <>
+      <nav className='border flex relative border-white px-2 w-[98%] z-10 items-end shadow-xl text-white  justify-between no-underline '>
         <div className='flex'>
           <img src="/nsutailogo.png" alt="logo" className='w-[5rem] ' />
         </div>
-        <ul className='flex gap-3 list-none w-1/2 justify-between'>
-          <li className='mx-5 cursor-pointer w-1/5  text-[1.1rem] font-light '>Home</li>
-          <li className='mx-5 cursor-pointer w-1/5  text-[1.1rem] font-light '>About</li>
-          <li className='mx-5 cursor-pointer w-1/5  text-[1.1rem] font-light '>Contact</li>
-          <li className='mx-5 cursor-pointer w-1/5  text-[1.1rem] font-light '>Achievments</li>
-          <li className='mx-5 cursor-pointer w-1/5  text-[1.1rem] font-light '>Projects</li>
-        </ul>
+        {
+          !showMobileNav ?
+          <ul className=' sm:hidden md:hidden lg:flex hidden  gap-3 list-none w-1/2  justify-center '>
+          <li className='mx-2 cursor-pointer w-1/5  text-[1.1rem] font-light '>Home</li>
+          <li className='mx-2 cursor-pointer w-1/5  text-[1.1rem] font-light '>About</li>
+          <li className='mx-2 cursor-pointer w-1/5  text-[1.1rem] font-light '>Contact</li>
+          <li className='mx-2 cursor-pointer w-1/5  text-[1.1rem] font-light '>Achievments</li>
+          <li className='mx-2 cursor-pointer w-1/5  text-[1.1rem] font-light '>Projects</li>
+        </ul> :
+        <MobileNavbar/>
+        }
+
+        <div className='sm:flex md:flex lg:hidden ml-auto text-xl py-5 justify-end' onClick={()=>toggleNav()}>
+
+          <GiHamburgerMenu />
+
+        </div>
         <div className='pt-3 gap-2'>
-<button
-  class=" bg-transparent mx-1 border border-white text-white px-4 py-2 rounded-full cursor-pointer hover:bg-white hover:text-black transition duration-200 ease-in-out focus:outline-none"
->
-  Login
-</button>
-        <button
-  class="bg-[#415ED0] mx-1 text-white px-4 py-2 rounded-full transition duration-200 ease-in-out hover:bg-blue-700  focus:outline-none"
->
-Register
-</button>
-         </div>
+
+          <div className=' lg:flex hidden'>
+
+            <Button label="Login" bgColor="bg-transparent" border="border border-white" bgOnhover="bg-white" textOnhover="text-black" textColor="text-white" />
+            <Button label="Register" bgColor="bg-[#415ED0]" bgOnhover="bg-blue-700" />
+          </div>
+
+        </div>
       </nav>
 
+    </>
   )
 }
 

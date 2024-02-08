@@ -32,36 +32,17 @@ module.exports = {
         "31xl": "50px",
         "3xs": "10px",
       },
-    },
-    fontSize: {
-      "5xl": "1.5rem",
-      base: "1rem",
-      xl: "1.25rem",
-      "xl-8": "1.3rem",
-      mid: "1.06rem",
-      "sm-9": "0.87rem",
-      "mid-4": "1.09rem",
-      "2xs": "0.69rem",
-      "13xl": "2rem",
-      "7xl": "1.63rem",
-      lgi: "1.19rem",
-      mini: "0.94rem",
-      inherit: "inherit",
-    },
-    screens: {
-      mq1425: {
-        raw: "screen and (max-width: 1425px)",
-      },
-      lg: {
-        max: "1200px",
-      },
-      mq825: {
-        raw: "screen and (max-width: 825px)",
-      },
-      mq450: {
-        raw: "screen and (max-width: 450px)",
+      animation: {
+        'fade-in': 'fadeIn 0.15s ease-in-out',
       },
     },
+    keyframes: {
+      fadeIn: {
+        '0%': { opacity: 0 },
+        '100%': { opacity: 1 },
+      },
+    },
+    
   },
   corePlugins: {
     preflight: false,

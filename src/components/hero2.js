@@ -6,7 +6,7 @@ const Hero2 = () => {
         <div>
             <img src="" alt="" />
         </div>
-        <div className='flex flex-col p-5 w-1/2 text-center  '>
+        <div className='fade-in flex flex-col p-5 w-1/2 text-center  '>
             <h1>Lorem, ipsum dolor.</h1>
             <h3>Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, consequatur? ibus in.</h3>
         </div>
