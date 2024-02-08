@@ -9,10 +9,10 @@ const Navbar = () => {
   }
   const [showMobileNav,setshowMobileNav] = useState(false)
   return (
-    <>
-      <nav className='border flex relative border-white px-2 w-[98%] z-10 items-end shadow-xl text-white  justify-between no-underline '>
+    
+      <nav className='border border-white relative  z-10 top-0 sticky   px-2 w-[98%] items-end shadow-xl text-white flex justify-between no-underline '>
         <div className='flex'>
-          <img src="/nsutailogo.png" alt="logo" className='w-[5rem] ' />
+          <img src="/images/nsutailogo.png" alt="logo" className='w-[5rem] ' />
         </div>
         {
           !showMobileNav ?
