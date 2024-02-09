@@ -9,8 +9,8 @@ const Navbar = () => {
   }
   const [showMobileNav,setshowMobileNav] = useState(false)
   return (
-    
-      <nav className='border border-white relative  z-10 top-0 sticky   px-2 w-[98%] items-end shadow-xl text-white flex justify-between no-underline '>
+    <>
+      <nav className='border border-white relative z-10 top-0  px-2 w-[98%] items-end shadow-xl text-white flex justify-between no-underline '>
         <div className='flex'>
           <img src="/images/nsutailogo.png" alt="logo" className='w-[5rem] ' />
         </div>
