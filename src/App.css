@@ -6,3 +6,22 @@ body{
   font-family: inter;
   color: white;
 }
+
+.grid-custom {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 40px;
+  margin-left: 30px;
+  margin-right: 30px;
+  
+}
+
+.card:only-child {
+  max-width: 30%;
+  
+}
+
+/* Reset max-width for grid items when there are more than one element */
+.grid-custom .card:not(:only-child) {
+  max-width: none;
+}
