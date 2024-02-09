@@ -2,7 +2,7 @@ import React from "react";
 
 const Featured = () => {
   return (
-    <div class="bg-white dark:bg-gray-900">
+    <div class="bg-white dark:bg-gray-900 py-9">
       <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
         <img
           class="w-full hidden dark:block rounded-2xl"
@@ -13,7 +13,9 @@ const Featured = () => {
           <div className="flex py-5 text-white">
             <h5>January 26th,2024 </h5>
             <div className="rounded-full ml-5 mr-3 w-3 h-3 bg-[#ABB9ED] m-auto"></div>
-            <h5 className="text-slate-200">Featured </h5>
+            <h5 className="text-slate-200 animate-text bg-gradient-to-r from-purple-500 via-[#ABB9ED] to-orange-500 bg-clip-text text-transparent">
+              Featured{" "}
+            </h5>
           </div>
           <div className="flex py-5 text-white">
             <img
@@ -21,7 +23,7 @@ const Featured = () => {
               src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80"
               alt="author image"
             />
-            <h5 className="pt-1">Author's name </h5>
+            <h5 className="pt-2">Author's name </h5>
           </div>
           <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
