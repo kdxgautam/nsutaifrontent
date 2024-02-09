@@ -2,12 +2,13 @@
 import './App.css';
 import Navbar from "./components/Navbar"
 import Footer from './components/footer';
+import Home from './pages/home';
 
 function App() {
   return (
-    <main className='p-3 overflow-x-hidden'>
+    <main className='overflow-x-auto'>
     <Navbar/>
-
+    <Home/>
     <Footer/>
     </main>
   );
