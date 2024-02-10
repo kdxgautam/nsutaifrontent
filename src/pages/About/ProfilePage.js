@@ -31,8 +31,8 @@ const ProfilePage = () => {
 
                 <h2 className="text-white pl-[4rem] pt-[2rem] xl:pl-[6rem] xl:pt-[4rem]">Connect at:</h2>
                 <div className="pl-[4rem] pt-[2rem] xl:pl-[6rem] xl:pt-[1rem] pb-[2rem] flex">
-                    <img src="github.png" alt="" className="w-[3rem]"></img>
-                    <img src="linkedin.png" alt=""></img>
+                    <img src="/images/github.png" alt="" className="w-[3rem]"></img>
+                    <img src="/images/linkedin.png" alt=""></img>
                     </div>
                 </div>
 

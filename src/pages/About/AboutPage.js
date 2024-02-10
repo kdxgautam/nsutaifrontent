@@ -9,7 +9,7 @@ const AboutPage = () => {
         <main className="overflow-hidden">
             <nav><Navbar/></nav>
             <div className="text-center pt-44 pb-12"><h1 className="text-xl text-[#BBBCC0] font-inter font-normal md:max-xl:text-md">About NSUT.AI</h1></div> 
-            <div className="flex justify-center items-center"><img src="about.jpg" alt="aboutimage" className=" rounded-[4rem] xl:h-96 xl:w-144 h-72 "/></div>
+            <div className="flex justify-center items-center"><img src="/images/about.jpg" alt="aboutimage" className=" rounded-[4rem] xl:h-96 xl:w-144 h-72 "/></div>
             <div className="pt-12 flex items-center justify-center"><p className="text-center text-[#BBBCC0] font-light text-[0.8rem] md:max-xl:text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor <br/>
              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis <br/>
              nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br/>
