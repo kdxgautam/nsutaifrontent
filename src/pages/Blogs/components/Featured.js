@@ -2,10 +2,10 @@ import React from "react";
 
 const Featured = () => {
   return (
-    <div class="bg-white dark:bg-gray-900 py-9">
+    <div class="dark:bg-gray-900 py-9">
       <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
         <img
-          class="w-full hidden dark:block rounded-2xl"
+          class="w-full  dark:block rounded-2xl shadow-indigo-500/50 shadow-xl max-lg:pb-3"
           src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup-dark.svg"
           alt="dashboard image"
         />
@@ -25,10 +25,10 @@ const Featured = () => {
             />
             <h5 className="pt-2">Author's name </h5>
           </div>
-          <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+          <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-white-500 max-lg:text-3xl ">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
           </h2>
-          <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">
+          <p class="mb-6 font-light text-gray-300 md:text-lg ">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius nulla
             blanditiis sit debitis expedita, optio facilis quod vel repudiandae,
             nesciunt atque delectus ipsum totam. Cumque quisquam dolorem nisi
@@ -36,7 +36,7 @@ const Featured = () => {
           </p>
           <a
             href="#"
-            class="inline-flex items-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900"
+            class="inline-flex items-center text-gray-300 bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900"
           >
             Read More
             <svg

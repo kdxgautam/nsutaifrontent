@@ -7,7 +7,7 @@ const Search = () => {
         <form>
           <input
             placeholder="Search"
-            className=" rounded-3xl text-grey-300 bg-black bg-opacity-[63%] p-3 m-3 w-full focus:outline-none focus:ring-2 ring-[#415ED0] shadow-2xl"
+            className=" rounded-3xl text-grey-300 bg-black bg-opacity-[63%] p-3 m-3 w-full focus:outline-none focus:ring-2 ring-[#415ED0] shadow-2xl hover:shadow-indigo-500/50 "
           />
         </form>
       </div>
