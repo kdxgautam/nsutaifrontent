@@ -7,6 +7,7 @@ import Home from "./pages/home/home";
 import SingleBlog from "./pages/SingleBlog/SingleBlog";
 import ProfilePage from "./pages/About/ProfilePage";
 import AboutPage from "./pages/About/AboutPage";
+import Projects from "./pages/Projects/Projects"
 function App() {
   return (
     <main className="overflow-x-auto">
@@ -18,6 +19,8 @@ function App() {
           <Route path="/blog" element={<SingleBlog />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/project" element={<Projects />} />
+
         </Routes>
         <Footer />
       </BrowserRouter>
