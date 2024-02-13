@@ -36,12 +36,13 @@ const Navbar = () => {
   }
   return (
     <>
-      <nav className='relative z-10 top-0  px-2 w-[98%] items-end shadow-xl text-white flex justify-between no-underline '>
+      <nav className='relative z-10 top-0 px-2 w-[98%] items-end shadow-xl text-white flex justify-between no-underline '>
         <div className='flex'>
-          <img src="/images/nsutailogo.png" alt="logo" className='w-[5rem] ' />
+          <img src="nsutailogo.png" alt="logo" className='w-[5rem] ' />
         </div>
         {
           !showMobileNav ?
+<<<<<<< HEAD
             <ul className=' sm:hidden md:hidden lg:flex hidden py-2  gap-3 list-none w-[50vw]  justify-center '>
               <li className='mx-2 cursor-pointer w-1/5  text-[1.1rem] font-light '>
                 <Link to="/">
@@ -70,6 +71,16 @@ const Navbar = () => {
               </li>
             </ul> :
             <MobileNavbar />
+=======
+          <ul className=' sm:hidden md:hidden lg:flex hidden py-2 pl-[14em] gap-6 list-none w-1/2  justify-center '>
+          <li className='text-centre cursor-pointer w-1/5  text-[0.9rem] font-light font-inter '>Blogs</li>
+          <li className='text-centre cursor-pointer w-1/5  text-[0.9rem] font-light font-inter '>Events</li>
+          <li className='text-centre cursor-pointer w-1/5  text-[0.9rem] font-light font-inter '>Achievements</li>
+          <li className='text-centre cursor-pointer w-1/5 pl-[2rem] md:pl-0  text-[0.9rem] font-light font-inter '>Projects</li>
+          <li className='text-centre cursor-pointer w-1/5  text-[0.9rem] font-light font-inter '>About</li>
+        </ul> :
+        <MobileNavbar/>
+>>>>>>> ff729eb72bc23c456b7614bf7ccdd3ce166d0cdd
         }
 
         <div className='sm:flex md:flex lg:hidden ml-auto text-xl py-5 justify-end' onClick={() => toggleNav()}>
