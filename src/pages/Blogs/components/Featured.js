@@ -7,7 +7,7 @@ const Featured = () => {
         <img
           class="w-full  dark:block rounded-2xl shadow-indigo-500/50 shadow-xl max-lg:pb-3"
           src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup-dark.svg"
-          alt="dashboard image"
+          alt="dashboard "
         />
         <div class="mt-4 md:mt-0">
           <div className="flex py-5 text-white">
@@ -21,7 +21,7 @@ const Featured = () => {
             <img
               className="rounded-full h-9 w-9 mr-4 "
               src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80"
-              alt="author image"
+              alt="author "
             />
             <h5 className="pt-2">Author's name </h5>
           </div>
@@ -35,7 +35,7 @@ const Featured = () => {
             quasi reprehenderit.
           </p>
           <a
-            href="#"
+            href="/"
             class="inline-flex items-center text-gray-300 bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900"
           >
             Read More

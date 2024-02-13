@@ -1,12 +1,10 @@
-import EventCard from "./EventCard"
-import Footer from "./Footer"
-import Navbar from "./Navbar"
+import EventCard from "./components/EventCard"
 
 
-const EventFrame = () => {
+
+const Event = () => {
   return (
     <>
-      <Navbar />
       <div className="flex w-full justify-center items-center mt-28 pt-[70px] ">
         <div className="text-center  w-[450px] min-w-[300px] flex flex-col pl-7">
           <h1 className="text-[#BBBCC0] text-5xl lg:text-7xl">
@@ -27,9 +25,8 @@ const EventFrame = () => {
         <EventCard />
         <EventCard />
       </div>
-      <Footer />
     </>
   )
 }
 
-export default EventFrame
+export default Event

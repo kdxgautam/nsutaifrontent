@@ -9,6 +9,7 @@ const SingleBlog = () => {
       <img
         className="  h-[20rem] lg:h-[30rem] rounded-2xl mb-11"
         src="https://images.unsplash.com/photo-1674027444485-cec3da58eef4?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt="card"
       />
       <div className="flex space-x-2">
         <h5>Technology</h5>
