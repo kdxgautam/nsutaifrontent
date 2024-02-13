@@ -1,6 +1,7 @@
 import React from 'react'
 import HomeCardsContainer from './components/homecardscontainer'
 import HomeNews from './components/homenews';
+import { Link } from 'react-router-dom';
 const Home = () => {
     return (
         <div className='' >
@@ -18,16 +19,27 @@ const Home = () => {
 
                 <HomeNews />
                 <section id='events' className='flex mb-60 mt-20 justify-center items-center flex-col'>
-                    <h1 className=' text-2xl my-2 font-light underline underline-offset-4'>Events</h1>
+                    <h1 className=' text-2xl my-2 font-light underline underline-offset-4'>
+                        <Link to="/events">
+                    Events
+                        </Link>
+                    </h1>
                     <HomeCardsContainer />
                 </section >
                 <section id='blogs' className='flex my-60 justify-center items-center flex-col'>
-                    <h1 className=' text-2xl my-2 font-light underline underline-offset-4'>Blogs</h1>
+                    <h1 className=' text-2xl my-2 font-light underline underline-offset-4'><Link to="/blogs">
+                    Blogs
+                        </Link></h1>
                     <HomeCardsContainer />
                 </section >
                 <section id='projects' className='flex my-60 justify-center items-center flex-col'>
 
-                    <h1 className=' text-2xl my-2 font-light underline underline-offset-4'>Projects</h1>
+                    <h1 className=' text-2xl my-2 font-light underline underline-offset-4'>
+                    <Link to="/projects">
+                    Projects
+                        </Link>
+                    </h1>
+                        
                     <HomeCardsContainer />
                 </section >
                 <section id='achievements' className='flex mt-60 justify-center items-center flex-col'>

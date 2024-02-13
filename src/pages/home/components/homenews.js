@@ -10,8 +10,18 @@ const HomeNews = () => {
                     </div>
                     <ul className='flex list-disc h-full flex-col w-[98%]'>
                         {/* this contains news  */}
+
                         <hr />
-                        <li className='w-full mt-1 mb-10'>
+                        <li className='w-full cursor-pointer mt-1 mb-10'>
+                            <div className='flex'>
+
+                                
+                                <p><p className=' font-bold mr-2'>Title:</p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam ab ratione adipisci illum quidem unde velit fuga accusantium corporis cumque consequatur voluptatum eaque, amet fugiat exercitationem atque ut nisi error!</p>
+                            </div>
+                        </li>
+                        
+                        <hr />
+                        <li className='w-full cursor-pointer mt-1 mb-10'>
                             <div className='flex'>
 
                                 
@@ -19,7 +29,7 @@ const HomeNews = () => {
                             </div>
                         </li>
                         <hr />
-                        <li className='w-full mt-1 mb-10'>
+                        <li className='w-full cursor-pointer mt-1 mb-10'>
                             <div className='flex'>
 
                                 
@@ -27,22 +37,13 @@ const HomeNews = () => {
                             </div>
                         </li>
                         <hr />
-                        <li className='w-full mt-1 mb-10'>
+                        <li className='w-full cursor-pointer mt-1 mb-10'>
                             <div className='flex'>
 
                                 
                                 <p><p className=' font-bold mr-2'>Title:</p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam ab ratione adipisci illum quidem unde velit fuga accusantium corporis cumque consequatur voluptatum eaque, amet fugiat exercitationem atque ut nisi error!</p>
                             </div>
                         </li>
-                        <hr />
-                        <li className='w-full mt-1 mb-10'>
-                            <div className='flex'>
-
-                                
-                                <p><p className=' font-bold mr-2'>Title:</p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam ab ratione adipisci illum quidem unde velit fuga accusantium corporis cumque consequatur voluptatum eaque, amet fugiat exercitationem atque ut nisi error!</p>
-                            </div>
-                        </li>
-
                     </ul>
                 </section>
   )
