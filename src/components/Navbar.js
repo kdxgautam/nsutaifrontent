@@ -16,17 +16,7 @@ const Navbar = () => {
     setshowMobileNav(!showMobileNav)
   }
 
-  const handlesignin = () => {
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        let userprofile = getAdditionalUserInfo(result).profile
-        setuser(userprofile)
 
-      }).catch((error) => {
-        console.log(error)
-      });
-
-  }
   const handlesignout = async () => {
     signOut(auth).then(() => {
       setuser(null)
@@ -78,18 +68,23 @@ const Navbar = () => {
           <GiHamburgerMenu />
 
         </div>
-        <div className='pt-3 py-2  gap-2'>
+        <div className='pt-3 py-2  gap-2  '>
 
           {!user &&
             <div className=' lg:flex hidden'>
-              <div onClick={handlesignin}>
-
-                <Button label="Login" bgColor="bg-transparent" border="border border-white" bgOnhover="bg-white" textOnhover="text-black" textColor="text-white" />
+              <div >
+                <Button label="Login" bgColor="bg-transparent" border="border border-white" bgOnhover="bg-white" textOnhover="text-black" textColor="text-white" >
+                <Link to="/login">
+                  Login
+                </Link>
+                </Button>
               </div>
-              <Button label="Register" bgColor="bg-[#415ED0]" bgOnhover="bg-blue-700" />
+              <Button  bgColor="bg-[#415ED0]" bgOnhover="bg-blue-700" >
+                Register
+              </Button>
             </div>
           }
-          {user && <div onClick={() => handlesignout()}><Button bgColor="bg-[#415ED0]" bgOnhover="bg-blue-700" label="Signout" /></div>}
+          {user && <div onClick={() => handlesignout()}><Button bgColor="bg-[#415ED0]" bgOnhover="bg-blue-700" label="Signout" >SignOut</Button></div>}
 
         </div>
       </nav>

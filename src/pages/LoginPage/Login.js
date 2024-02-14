@@ -1,6 +1,29 @@
+import { getAdditionalUserInfo, signInWithPopup } from "firebase/auth";
+import { auth, provider } from "../../config";
+import { useContext, useEffect } from "react";
+import Authcontext from "../../context/Authcontext";
+import { useNavigate } from "react-router-dom";
 
 
 const Login  = () => {
+  const {user, setuser}= useContext(Authcontext)
+  const handlesignin = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        let userprofile = getAdditionalUserInfo(result).profile
+        setuser(userprofile)
+
+      }).catch((error) => {
+        console.log(error)
+      });
+
+  }
+  const navigation = useNavigate()
+  useEffect(()=>{
+    if(user){
+      navigation("/")
+    }
+  })
     return (
       <div className="flex justify-center mt-[2rem]">
         <section className="">
@@ -82,6 +105,7 @@ const Login  = () => {
                 <button
                   type="button"
                   className="relative inline-flex w-full items-center justify-center rounded-md border border-gray-400 bg-white px-3.5 py-2.5 font-semibold text-gray-700 transition-all duration-200 hover:bg-gray-100 hover:text-black focus:bg-gray-100 focus:text-black focus:outline-none"
+                  onClick={handlesignin}
                 >
                   <span className="mr-2 inline-block">
                   <img src="/images/google.png" className="h-6 w-6" alt="" />

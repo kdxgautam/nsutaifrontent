@@ -9,6 +9,7 @@ import Event from "./pages/Events/Events"
 import ProfilePage from "./pages/About/ProfilePage";
 import AboutPage from "./pages/About/AboutPage";
 import Projects from "./pages/Projects/Projects"
+import Login from "./pages/LoginPage/Login";
 function App() {
   return (
     <main className="overflow-x-auto">
@@ -23,6 +24,7 @@ function App() {
           <Route path="/about" element={<AboutPage/>} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/login" element={<Login />} />
 
         </Routes>
         <Footer />
