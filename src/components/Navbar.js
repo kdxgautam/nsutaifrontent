@@ -4,8 +4,8 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import MobileNavbar from './MobileNavbar';
 import { Link } from 'react-router-dom';
 
-import { getAdditionalUserInfo, signInWithPopup, signOut } from 'firebase/auth';
-import { auth, provider } from '../config';
+import { signOut } from 'firebase/auth';
+import { auth } from '../config';
 import Authcontext from '../context/Authcontext';
 
 const Navbar = () => {
@@ -80,11 +80,14 @@ const Navbar = () => {
                 </Button>
               </div>
               <Button  bgColor="bg-[#415ED0]" bgOnhover="bg-blue-700" >
-                Register
+              <Link to="/signup">
+                  Register
+                </Link>
+
               </Button>
             </div>
           }
-          {user && <div onClick={() => handlesignout()}><Button bgColor="bg-[#415ED0]" bgOnhover="bg-blue-700" label="Signout" >SignOut</Button></div>}
+          {user && <div className='lg:flex hidden' onClick={() => handlesignout()}><Button bgColor="bg-[#415ED0]" bgOnhover="bg-blue-700" label="Signout" >SignOut</Button></div>}
 
         </div>
       </nav>

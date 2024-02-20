@@ -2,7 +2,7 @@ import { getAdditionalUserInfo, signInWithPopup } from "firebase/auth";
 import { auth, provider } from "../../config";
 import { useContext, useEffect } from "react";
 import Authcontext from "../../context/Authcontext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const Login  = () => {
@@ -37,13 +37,13 @@ const Login  = () => {
               </h2>
               <p className="mt-2 text-center text-sm text-white ">
                 Don&apos;t have an account?{" "}
-                <a
-                  href="#"
+                <Link
+                  to="/signup"
                   title=""
                   className=" text-white font-bold transition-all duration-200 hover:underline"
                 >
                   Sign Up
-                </a>
+                </Link>
               </p>
               <form action="#" method="POST" className="mt-8">
                 <div className="space-y-5">
@@ -72,14 +72,14 @@ const Login  = () => {
                         {" "}
                         Password{" "}
                       </label>
-                      <a
-                        href="#"
+                      <Link
+                        href="/forgotpass"
                         title=""
                         className="text-sm font-semibold text-white hover:underline"
                       >
                         {" "}
                         Forgot password?{" "}
-                      </a>
+                      </Link>
                     </div>
                     <div className="mt-2">
                       <input

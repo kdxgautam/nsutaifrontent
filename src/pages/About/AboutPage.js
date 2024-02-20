@@ -22,12 +22,22 @@ const AboutPage = () => {
                 <div className="text-center pt-36 pb-12"><h1 className="text-xl text-[#BBBCC0] font-inter font-normal md:max-xl:text-md">Departments</h1></div>
                 <div className="flex items-center justify-center"><DepartmentsList /></div>
                 <div className="text-center pt-36 pb-12"><h1 className="text-xl text-[#BBBCC0] font-inter font-normal md:max-xl:text-md">Core Members</h1></div>
-                <div className="text-white flex space-x-4 m-5 pr-[60px] max-lg:flex-wrap max-lg:pr-0 max-lg:justify-center lg:w-full">
-                    <div className="hover:bg-[#415ED0] cursor-pointer rounded-2xl text-[0.8rem] w-1/3 bg-gray-800 my-2 py-2 xl:w-[16rem] xl:h-[1.8rem] text-center pt-1">Software Department</div>
-                    <div className="hover:bg-[#415ED0] cursor-pointer rounded-2xl text-[0.8rem] w-1/3 bg-gray-800 my-2 py-2 xl:w-[16rem] xl:h-[1.8rem] text-center pt-1">Research Department</div>
-                    <div className="hover:bg-[#415ED0] cursor-pointer rounded-2xl text-[0.8rem] w-1/3 bg-gray-800 my-2 py-2 xl:w-[16rem] xl:h-[1.8rem] text-center pt-1">AI&ML Department</div>
-                    <div className="hover:bg-[#415ED0] cursor-pointer rounded-2xl text-[0.8rem] w-1/3 bg-gray-800 my-2 py-2 xl:w-[16rem] xl:h-[1.8rem] text-center pt-1">Graphics Department</div>
-                    <div className="hover:bg-[#415ED0] cursor-pointer rounded-2xl text-[0.8rem] w-1/3 bg-gray-800 my-2 py-2 xl:w-[4rem]  xl:h-[1.8rem] text-center pt-1">All</div>
+                <div className="text-white flex justify-around m-auto py-10 max-lg:flex-wrap max-lg:pr-0 max-lg:justify-center w-full">
+                    <div className="hover:bg-[#415ED0] p-4 rounded-full flex items-center justify-center">
+                        Software Department
+                    </div>
+                    <div className="hover:bg-[#415ED0] p-4 rounded-full flex items-center justify-center">
+                        Research Department
+                    </div>
+                    <div className="hover:bg-[#415ED0] p-4 rounded-full flex items-center justify-center">
+                        AI&ML Department
+                    </div>
+                    <div className="hover:bg-[#415ED0] p-4 rounded-full flex items-center justify-center">
+                        Graphics Department
+                    </div>
+                    <div className="hover:bg-[#415ED0] p-4 rounded-full flex items-center justify-center">
+                        All
+                    </div>
                 </div>
                 <div className="flex-col">
                     <div className="sm:flex sm:flex-wrap grid md:grid md:grid-cols-2 lg:grid-cols-3 justify-center items-center gap-10 ">

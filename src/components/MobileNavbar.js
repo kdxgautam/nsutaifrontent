@@ -1,23 +1,13 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import Button from './Button'
-import { getAdditionalUserInfo, signInWithPopup, signOut } from '@firebase/auth'
-import { auth, provider } from '../config'
+import { signOut } from '@firebase/auth'
+import { auth } from '../config'
 import Authcontext from '../context/Authcontext'
 
 const MobileNavbar = () => {
   const {user, setuser}= useContext(Authcontext)
-  const handlesignin = () => {
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        let userprofile = getAdditionalUserInfo(result).profile
-        setuser(userprofile)
 
-      }).catch((error) => {
-        console.log(error)
-      });
-
-  }
   const handlesignout = async () => {
     signOut(auth).then(() => {
       setuser(null)
@@ -47,15 +37,26 @@ const MobileNavbar = () => {
         <div className='pt-3 py-2  gap-2  '>
 
 {!user &&
-  <div className=' lg:flex hidden'>
-    <div onClick={handlesignin}>
+  <div className='flex justify-center w-auto '>
+    <div  className='px-3 cursor-pointer w-1/5 py-3 text-[1.1rem] font-light'>
 
-      <Button label="Login" bgColor="bg-transparent" border="border border-white" bgOnhover="bg-white" textOnhover="text-black" textColor="text-white" />
+        <Link to="/login">
+      <Button label="Login" bgColor="bg-transparent" border="border border-white" bgOnhover="bg-white" textOnhover="text-black" textColor="text-white" >
+        Login
+        </Button>
+        </Link>
     </div>
-    <Button label="Register" bgColor="bg-[#415ED0]" bgOnhover="bg-blue-700" />
+    <div className='mx-3 cursor-pointer w-1/5 py-3 text-[1.1rem] font-light'>
+
+    <Button label="Register" bgColor="bg-[#415ED0]" bgOnhover="bg-blue-700" >
+      <Link to="/signup">
+      Register
+      </Link>
+    </Button>
+    </div>
   </div>
 }
-{user && <div onClick={() => handlesignout()}><Button bgColor="bg-[#415ED0]" bgOnhover="bg-blue-700" label="Signout" /></div>}
+{user && <div onClick={() => handlesignout()}><Button bgColor="bg-[#415ED0] mx-7" bgOnhover="bg-blue-700" onClick={handlesignout}>SignOut</Button></div>}
 
 </div>
             </ul>
