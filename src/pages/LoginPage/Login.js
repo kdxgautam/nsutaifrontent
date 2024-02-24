@@ -1,23 +1,12 @@
-import { getAdditionalUserInfo, signInWithPopup } from "firebase/auth";
-import { auth, provider } from "../../config";
+
 import { useContext, useEffect } from "react";
 import Authcontext from "../../context/Authcontext";
 import { Link, useNavigate } from "react-router-dom";
 
 
 const Login  = () => {
-  const {user, setuser}= useContext(Authcontext)
-  const handlesignin = () => {
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        let userprofile = getAdditionalUserInfo(result).profile
-        setuser(userprofile)
+  const {user, handlesignin}= useContext(Authcontext)
 
-      }).catch((error) => {
-        console.log(error)
-      });
-
-  }
   const navigation = useNavigate()
   useEffect(()=>{
     if(user){

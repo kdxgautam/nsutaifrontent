@@ -1,32 +1,23 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext,  useState } from 'react'
 import Button from './Button'
 import { GiHamburgerMenu } from "react-icons/gi";
 import MobileNavbar from './MobileNavbar';
 import { Link } from 'react-router-dom';
 
-import { signOut } from 'firebase/auth';
-import { auth } from '../config';
 import Authcontext from '../context/Authcontext';
 
 const Navbar = () => {
   const [showMobileNav, setshowMobileNav] = useState(false)
-  const { user, setuser } = useContext(Authcontext)
-
+  const { user,  handlesignout } = useContext(Authcontext)
+  
   const toggleNav = () => {
     setshowMobileNav(!showMobileNav)
   }
+  
 
-
-  const handlesignout = async () => {
-    signOut(auth).then(() => {
-      setuser(null)
-    }).catch((err) => {
-      console.log(err)
-    })
-  }
   return (
     <>
-      <nav className='relative z-10 top-0 px-2 w-[98%] items-end shadow-xl text-white flex justify-between no-underline '>
+      <nav className='sticky  z-10 top-0 px-2 w-[98%] items-end shadow-xl text-white flex justify-between no-underline '>
         <div className='flex'>
           <img src="/images/nsutailogo.png" alt="logo" className='w-[5rem] ' />
         </div>
@@ -87,7 +78,13 @@ const Navbar = () => {
               </Button>
             </div>
           }
-          {user && <div className='lg:flex hidden' onClick={() => handlesignout()}><Button bgColor="bg-[#415ED0]" bgOnhover="bg-blue-700" label="Signout" >SignOut</Button></div>}
+          {user &&
+           <div className='lg:flex hidden' onClick={() => handlesignout()}>
+            <img src={user.picture} alt="avatar" className='rounded-full w-10' />
+            <Button bgColor="bg-[#415ED0]" bgOnhover="bg-blue-700" label="Signout" >
+              SignOut
+            </Button>
+          </div>}
 
         </div>
       </nav>

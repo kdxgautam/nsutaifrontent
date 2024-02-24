@@ -1,0 +1,43 @@
+1. login functionality improvements:
+    -> user must remain logged in even it refreshes the page
+        FRONTEND
+        -> make a post req for login or register 
+        -> get a token, and user details 
+        -> store token in localstorage, user details in state
+        -> if page refreshes, add a useeffect in navbar to fetch user details using token
+        BACKEND 
+        ROUTE1 -> /login , no login required
+        -> post req for login 
+        -> verify the user 
+        -> generate a token
+        -> return { token : token , userdetails}
+        ROUTE2 -> /signup, no login required
+        -> post req for signup
+        -> create the user
+        -> generate a token
+        -> return {token : token , userdetails}
+        ROUTE3 -> /getuserdetails , no login required
+        -> accept post req with token in headers
+        -> take the token and decrypt that
+        -> if no token , give error
+        -> if not decryptable , give error -> invalid token
+        # preferable - make a middleware for token checking 
+        -> verify such user exists or not 
+        -> if not return error
+        -> otherwise return user information
+
+    -> write a middleware to check the token given by admin at each request
+    
+    -> admin must be able to login:
+    
+        -> same token functionality as above
+        BACKEND
+        -> ROUTE1 ,get /admin/admindetails , no login required
+            -> same decrypting token
+            -> checking if admin exists
+            -> if not give error
+            -> else give admin details
+        -> ROUTE2 /admin/login 
+            changes -> return admin info with token
+    
+    ->Decrypt the token from firebase and accordingly signup the user in mongodb also
