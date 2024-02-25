@@ -15,6 +15,7 @@ import Contact from "./pages/contact/contact";
 import Achievements from "./pages/Achievements/achievements";
 import Admin from "./pages/Admin/Admin";
 import AdminAuth from "./pages/Admin/AdminAuth";
+import AdminOperations from "./pages/Admin/AdminOperations/AdminOperations";
 function App() {
   return (
     <main className="overflow-x-auto h-[100vh]">
@@ -35,6 +36,7 @@ function App() {
           <Route path="/achievements" element={<Achievements />} />
           <Route exact path="/admin" element={<Admin/>}/>
           <Route exact path="/admin/auth" element={<AdminAuth/>}/>
+          <Route exact path="/admin/:operation" element={<AdminOperations/>}/>
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -26,18 +26,18 @@ const Admin = () => {
           </Link>
         </div>
         <div className='border cursor-pointer p-10 text-2xl h-[10rem] w-[20rem] items-center flex justify-center rounded-xl'>
-          <Link to="/admin/blogs">
+          <Link to="/admin/achievements">
             Achievements
           </Link>
         </div>
         <div className='border cursor-pointer p-10 text-2xl h-[10rem] w-[20rem] items-center flex justify-center rounded-xl'>
-          <Link to="/admin/blogs">
+          <Link to="/admin/projects">
             Projects
           </Link>
         </div>
         <div className='border cursor-pointer p-10 text-2xl h-[10rem] w-[20rem] items-center flex justify-center rounded-xl'>
-          <Link to="/admin/blogs">
-            Blogs
+          <Link to="/admin/news">
+            News
           </Link>
         </div>
       </div>
