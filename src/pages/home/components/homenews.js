@@ -16,7 +16,8 @@ const HomeNews = () => {
                             <div className='flex'>
 
                                 
-                                <p><p className=' font-bold mr-2'>Title:</p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam ab ratione adipisci illum quidem unde velit fuga accusantium corporis cumque consequatur voluptatum eaque, amet fugiat exercitationem atque ut nisi error!</p>
+                                <div><p className=' font-bold mr-2'>Title:</p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam ab ratione adipisci illum quidem unde velit fuga accusantium corporis cumque consequatur voluptatum eaque, amet fugiat exercitationem atque ut nisi error!
+                                </div>
                             </div>
                         </li>
                         
@@ -25,7 +26,8 @@ const HomeNews = () => {
                             <div className='flex'>
 
                                 
-                                <p><p className=' font-bold mr-2'>Title:</p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam ab ratione adipisci illum quidem unde velit fuga accusantium corporis cumque consequatur voluptatum eaque, amet fugiat exercitationem atque ut nisi error!</p>
+                                <div><p className=' font-bold mr-2'>Title:</p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam ab ratione adipisci illum quidem unde velit fuga accusantium corporis cumque consequatur voluptatum eaque, amet fugiat exercitationem atque ut nisi error!
+                                </div>
                             </div>
                         </li>
                         <hr />
@@ -33,7 +35,7 @@ const HomeNews = () => {
                             <div className='flex'>
 
                                 
-                                <p><p className=' font-bold mr-2'>Title:</p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam ab ratione adipisci illum quidem unde velit fuga accusantium corporis cumque consequatur voluptatum eaque, amet fugiat exercitationem atque ut nisi error!</p>
+                                <div><p className=' font-bold mr-2'>Title:</p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam ab ratione adipisci illum quidem unde velit fuga accusantium corporis cumque consequatur voluptatum eaque, amet fugiat exercitationem atque ut nisi error!</div>
                             </div>
                         </li>
                         <hr />
@@ -41,7 +43,7 @@ const HomeNews = () => {
                             <div className='flex'>
 
                                 
-                                <p><p className=' font-bold mr-2'>Title:</p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam ab ratione adipisci illum quidem unde velit fuga accusantium corporis cumque consequatur voluptatum eaque, amet fugiat exercitationem atque ut nisi error!</p>
+                                <div><p className=' font-bold mr-2'>Title:</p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam ab ratione adipisci illum quidem unde velit fuga accusantium corporis cumque consequatur voluptatum eaque, amet fugiat exercitationem atque ut nisi error!</div>
                             </div>
                         </li>
                     </ul>

@@ -13,9 +13,11 @@ import Login from "./pages/LoginPage/Login";
 import SignUp from "./pages/SignUpPage/SignUp";
 import Contact from "./pages/contact/contact";
 import Achievements from "./pages/Achievements/achievements";
+import Admin from "./pages/Admin/Admin";
+import AdminAuth from "./pages/Admin/AdminAuth";
 function App() {
   return (
-    <main className="overflow-x-auto">
+    <main className="overflow-x-auto h-[100vh]">
       <BrowserRouter>
         <Navbar />
         <Routes>
@@ -31,7 +33,8 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/achievements" element={<Achievements />} />
-
+          <Route exact path="/admin" element={<Admin/>}/>
+          <Route exact path="/admin/auth" element={<AdminAuth/>}/>
         </Routes>
         <Footer />
       </BrowserRouter>
