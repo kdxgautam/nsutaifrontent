@@ -17,7 +17,6 @@ const Contact = () => {
 
     <form action="https://formspree.io/f/xrgnqvzw" method='POST' class="mt-10">
     
-
       <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" /> 
       <div class="grid gap-6 sm:grid-cols-2">
         <div class="relative z-0">

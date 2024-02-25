@@ -6,7 +6,7 @@ const ProfilePage = () => {
     return (
         <>
         <main>
-            <nav><Navbar/></nav>
+         
             <div className="flex justify-center items-center pt-[4rem]"><ProfileCard/></div>
             <div className="flex items-center justify-center ">  
             <div className="flex-col justify-center items-center xl:w-[80rem] xl:h-[40rem] w-[30rem] bg-[#121216] rounded-[4rem]">
