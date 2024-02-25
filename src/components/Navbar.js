@@ -31,6 +31,11 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className='mx-2 cursor-pointer w-1/5  text-[1.1rem] font-light '>
+                <Link to="/blogs">
+                  Blogs
+                </Link>
+              </li>
+              <li className='mx-2 cursor-pointer w-1/5  text-[1.1rem] font-light '>
                 <Link to="/About">
                   About
                 </Link>

@@ -4,13 +4,15 @@ import { Link, useNavigate } from 'react-router-dom'
 // const host = "http://localhost:4000/"
 
 const AdminAuth = () => {
-  const navigation = useNavigate()
   const [data, setdata] = useState({ email: "", password: "" })
+
+
+  const navigation = useNavigate()
+  
   const { admin,handleAdminLogin } = useContext(Authcontext)
   const handleonChange = (e) => {
 
     setdata({ ...data, [e.target.name]: e.target.value })
-
   }
 
   useEffect(() => {
@@ -38,8 +40,8 @@ const AdminAuth = () => {
                     htmlFor=""
                     className="text-base font-medium text-white"
                   >
-                    {" "}
-                    Email address{" "}
+                   
+                    Email address
                   </label>
                   <div className="mt-2">
                     <input

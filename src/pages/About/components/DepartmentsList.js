@@ -26,7 +26,7 @@ const DepartmentsList = () => {
             <br/> reprehenderit in voluptate velit esse 
             <br/> cillum dolore efugiat nulla pariatur.
             </h4></div>
-        <div className="flex justify-center items-center z-20 absolute top-[8.5rem] left-[15rem] xl:top-[21rem] xl:left-[36rem] md:max-xl:top-[10rem] md:max-xl:left-[23rem]"><img  className="md:max-xl:scale-75 scale-40 w-8" alt="/images/research" src="research.png"></img></div>
+        <div className="flex justify-center items-center z-20 absolute top-[8.5rem] left-[15rem] xl:top-[21rem] xl:left-[36rem] md:max-xl:top-[10rem] md:max-xl:left-[23rem]"><img  className="md:max-xl:scale-75 scale-40 w-8" alt="research" src="/images/research.png"></img></div>
             <div className="flex justify-center items-center z-20 absolute top-[9.5rem] left-[8.5rem]  xl:top-[23rem] xl:left-[25.5rem] md:max-xl:top-[11.5rem] md:max-xl:left-[25rem]"><h4 className="font-light md:max-xl:text-[0.8rem] text-[0.6rem] xl:text-[1rem] ">Research Department</h4></div>
             <div className=" absolute top-[12rem] left-[19.5rem] xl:top-[27rem] xl:left-[50rem] md:max-xl:top-[14rem] md:max-xl:left-[28rem]"><h4 className="md:max-xl:text-[0.6rem] xl:text-[1rem] text-right text-[0.5rem] font-light">
             Lorem ipsum dolor sit amet, consectetur 
@@ -35,7 +35,7 @@ const DepartmentsList = () => {
             <br/>, quis nostrud exercitation ullamco laboris nisi ut ali
             <br/>ex ea commodo consequat. Duis aute irure dolor inja 
             </h4></div>
-        <div className="flex justify-center items-center z-20 absolute top-[8.5rem] left-[18rem] xl:top-[21rem] xl:left-[41rem] md:max-xl:top-[10rem] md:max-xl:left-[22rem]"><img  className="md:max-xl:scale-75 scale-40 w-8" alt="/images/graphics" src="graphics.png"></img></div>
+        <div className="flex justify-center items-center z-20 absolute top-[8.5rem] left-[18rem] xl:top-[21rem] xl:left-[41rem] md:max-xl:top-[10rem] md:max-xl:left-[22rem]"><img  className="md:max-xl:scale-75 scale-40 w-8" alt="graphics" src="/images/graphics.png"></img></div>
             <div className="flex justify-center items-center z-20 absolute top-[9.5rem] left-[20.5rem] xl:top-[23rem] xl:left-[45rem] md:max-xl:top-[11.5rem] md:max-xl:left-[13rem]"><h4 className="font-light md:max-xl:text-[0.8rem] text-[0.6rem] xl:text-[1rem] ">Graphics Department</h4></div>
             <div className=" absolute top-[12rem] left-[1rem] xl:top-[28rem] xl:left-[4rem] md:max-xl:top-[14rem] md:max-xl:left-[2rem]"><h4 className="md:max-xl:text-[0.6rem] text-left xl:text-[1rem] text-[0.5rem] font-light">
             
