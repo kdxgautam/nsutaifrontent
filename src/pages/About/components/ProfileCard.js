@@ -1,5 +1,6 @@
 const ProfileCard = () => {
     return (
+        
         <>
             <div className="flex flex-col justify-center items-center  justify-items-center m-auto sm:w-2/3">
                 <div className="flex justify-center items-center h-40 w-38">

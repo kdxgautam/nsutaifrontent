@@ -15,31 +15,31 @@ const Admin = () => {
       <h1 className='text-[3rem] flex w-full justify-center'>Admin Options</h1>
       <div className='my-20 lg:grid lg:grid-cols-3 md:grid md:grid-cols-2 sm:flex sm:flex-wrap gap-5 justify-items-center'>
         
-        <div className='border cursor-pointer p-10 text-2xl h-[10rem] w-[20rem] items-center flex justify-center rounded-xl'>
           <Link to="/admin/blogs">
+        <div className='border cursor-pointer p-10 text-2xl h-[10rem] w-[20rem] items-center flex justify-center rounded-xl'>
             Blogs
-          </Link>
         </div>
-        <div className='border cursor-pointer p-10 text-2xl h-[10rem] w-[20rem] items-center flex justify-center rounded-xl'>
+          </Link>
           <Link to="/admin/blogs">
+        <div className='border cursor-pointer p-10 text-2xl h-[10rem] w-[20rem] items-center flex justify-center rounded-xl'>
             Events
-          </Link>
         </div>
-        <div className='border cursor-pointer p-10 text-2xl h-[10rem] w-[20rem] items-center flex justify-center rounded-xl'>
+          </Link>
           <Link to="/admin/achievements">
+        <div className='border cursor-pointer p-10 text-2xl h-[10rem] w-[20rem] items-center flex justify-center rounded-xl'>
             Achievements
-          </Link>
         </div>
-        <div className='border cursor-pointer p-10 text-2xl h-[10rem] w-[20rem] items-center flex justify-center rounded-xl'>
+          </Link>
           <Link to="/admin/projects">
-            Projects
-          </Link>
-        </div>
         <div className='border cursor-pointer p-10 text-2xl h-[10rem] w-[20rem] items-center flex justify-center rounded-xl'>
-          <Link to="/admin/news">
-            News
-          </Link>
+            Projects
         </div>
+          </Link>
+          <Link to="/admin/news">
+        <div className='border cursor-pointer p-10 text-2xl h-[10rem] w-[20rem] items-center flex justify-center rounded-xl'>
+            News
+        </div>
+          </Link>
       </div>
     </div>
   )
