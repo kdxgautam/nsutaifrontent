@@ -1,17 +1,15 @@
-import Footer from "./Footer";
-import Navbar from "./NavBar";
-const SingleEvent = () => {
+const SingleEventFunc = (props) => {
+  const { title, description, date, venue, image, status } = props;
   return (
     <>
-      <Navbar />
       <div>
         <img
           className="w-full h-auto max-h-[30rem]"
-          src="https://cdn.wallpapersafari.com/14/40/pPnVIZ.jpg"
+          src={image}
           alt="Event Image"
         />
         <div className="relative bottom-10 sm:bottom-20 text-lg sm:text-xl sm:flex md:text-2xl lg:text-3xl xl:text-4xl flex justify-center items-end text-white">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+          {title}
         </div>
       </div>
       <div className="flex flex-col sm:flex-row justify-center items-center text-white p-5 sm:px-10 lg:px-20 xl:px-40 pt-4 lg:ml-20">
@@ -19,15 +17,11 @@ const SingleEvent = () => {
           <span className="text-4xl">Event Details</span>
           <br />
           <span className="text-xl leading-10">
-            Venue: Connecting Block
+            Venue: {venue}
             <br />
-            Time: 11am-3pm
+            Date:{date}
           </span>
-          <ul className="list-disc">
-            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit...</li>
-            <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit...</li>
-            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit...</li>
-          </ul>
+          <ul className="list-disc">{description}</ul>
           <button className="bg-[#415ED0] mx-1 text-white px-4 py-2 mt-6 rounded-full transition duration-200 ease-in-out hover:bg-blue-700 focus:outline-none">
             Register Here
           </button>
@@ -50,9 +44,8 @@ const SingleEvent = () => {
           />
         </div>
       </div>
-      <Footer />
     </>
   );
 };
 
-export default SingleEvent;
+export default SingleEventFunc;
