@@ -1,8 +1,27 @@
 import ProfileCard from "./components/ProfileCard";
 import DepartmentsList from "./components/DepartmentsList";
 import DepartmentsMob from "./components/DepartmentsMob";
+import { useEffect, useState } from "react";
+const host = "http://127.0.0.1:4000";
 
+
+  
+  
 const AboutPage = () => {
+    const [profile, setProfile] = useState([]);
+ 
+
+
+
+
+  const fetchProfile = async () => {
+    let res = await fetch(host + "/about/all");
+    let resdata = await res.json();
+    setProfile(resdata);
+  };
+  useEffect(() => {
+    fetchProfile();
+  }, []);
     return (
         <>
             <main className="overflow-hidden">
@@ -32,12 +51,8 @@ const AboutPage = () => {
                     <div className="hover:bg-[#415ED0] cursor-pointer rounded-2xl text-[0.5rem] sm:text-[0.8rem] w-[7rem] xl:w-[16rem] xl:h-[1.8rem] text-center pt-1">Graphics Department</div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-                <ProfileCard/>
-                <ProfileCard/>
-                <ProfileCard/>
-                <ProfileCard/>
-                <ProfileCard/>
-                <ProfileCard/>
+            {profile.length!==0 ? profile.map((event)=>(<ProfileCard key={profile._id} id={profile._id} name = {event.name} image={event.image} />)) : <h1 className="text-white">No profile found</h1> }
+                
             </div>
             <div className="pt-44">
                 </div>

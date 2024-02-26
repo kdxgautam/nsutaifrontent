@@ -1,6 +1,6 @@
 import Footer from "../../components/footer"
-import Navbar from "../../components/Navbar"
 import ProfileCard from "./components/ProfileCard"
+
 
 const ProfilePage = () => {
     return (
