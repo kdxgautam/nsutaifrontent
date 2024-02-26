@@ -28,7 +28,7 @@ const MobileNavbar = () => {
         <Link to="/contact">
         <li className='mx-5 px-3 cursor-pointer w-1/5 py-3 text-[1.1rem] font-light '>Contact</li>
         </Link>
-        <Link to="/achievments">
+        <Link to="/achievements">
         <li className='mx-5 px-3 cursor-pointer w-1/5 py-3 text-[1.1rem] font-light '>Achievments</li>
         </Link>
         <Link to="/projects">
