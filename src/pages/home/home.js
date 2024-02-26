@@ -6,7 +6,8 @@ const Home = () => {
     return (
         <div className='' >
             <section id='Hero' className='bg-gradient-to-b from-[#000000] to-[#030612]'>
-                <img src="/images/HomeHero.png" alt="" className='w-full md:h-[70vh] lg:h-[70vh] sm:h-[40vh] flex px-2' />
+                <video src="/images/rips.mp4" autoPlay="true" className='w-full md:h-[70vh] lg:h-[70vh] sm:h-[40vh] flex px-2' />
+                
             </section>
             <div className=' bg-gradient-to-r from-[#030612]  via-[#030612]  to-[#030612] h-[50vh] flex justify-center items-center'>
                 <h1 className=' lg:text-[3rem] md:text-[2rem] w-1/3'>What is Happening at Nsut.AI ?</h1>

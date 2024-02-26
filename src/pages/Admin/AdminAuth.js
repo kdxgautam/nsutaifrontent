@@ -1,19 +1,18 @@
-import React, { useContext, useEffect, useState } from 'react'
-import Authcontext from '../../context/Authcontext'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from "react";
+import Authcontext from "../../context/Authcontext";
+import { Link, useNavigate } from "react-router-dom";
 // const host = "http://localhost:4000/"
 
 const AdminAuth = () => {
-  const [data, setdata] = useState({ email: "", password: "" })
+  const [data, setdata] = useState({ email: "", password: "" });
 
+  const navigation = useNavigate();
 
-  const navigation = useNavigate()
-  
-  const { admin,handleAdminLogin } = useContext(Authcontext)
+  const { admin, handleAdminLogin } = useContext(Authcontext);
   const handleonChange = (e) => {
+    setdata({ ...data, [e.target.name]: e.target.value });
+  };
 
-    setdata({ ...data, [e.target.name]: e.target.value })
-  }
   // const fetchadmin=async()=>{
   //   if(!localStorage.getItem("AdminToken")){
   //     return;
@@ -25,17 +24,22 @@ const AdminAuth = () => {
   //       token : localStorage.getItem("AdminToken")
   //     }
   //   })
-    
   // }
+
+  return (
+    <div>
+      {/* Your component JSX */}
+    </div>
+  );
+
 
   useEffect(() => {
     // fetchadmin()
     if (admin) {
-      navigation("/admin")
+      navigation("/admin");
     }
-  }, [admin, navigation])
+  }, [admin, navigation]);
   return (
-
     <div className="flex justify-center mt-[2rem]">
       <section className="">
         <div className="border border-white  flex items-center justify-center px-4 py-8 sm:px-6 sm:py-12 lg:px-14 lg:py-22">
@@ -54,7 +58,6 @@ const AdminAuth = () => {
                     htmlFor=""
                     className="text-base font-medium text-white"
                   >
-                   
                     Email address
                   </label>
                   <div className="mt-2">
@@ -65,7 +68,6 @@ const AdminAuth = () => {
                       placeholder="Email"
                       onChange={handleonChange}
                       value={data.value}
-
                     ></input>
                   </div>
                 </div>
@@ -75,7 +77,6 @@ const AdminAuth = () => {
                       htmlFor="password"
                       className="text-base font-medium text-white"
                     >
-                     
                       Password
                     </label>
                     <Link
@@ -102,10 +103,12 @@ const AdminAuth = () => {
                   <button
                     type="button"
                     className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
-                    onClick={(e)=>{e.preventDefault(); handleAdminLogin(data)}}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleAdminLogin(data);
+                    }}
                   >
                     Login
-
                   </button>
                 </div>
               </div>
@@ -114,7 +117,8 @@ const AdminAuth = () => {
         </div>
       </section>
     </div>
-  )
+  );
 }
 
-export default AdminAuth
+
+export default AdminAuth;
