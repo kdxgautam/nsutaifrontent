@@ -16,7 +16,11 @@ import Contact from "./pages/contact/contact";
 import Achievements from "./pages/Achievements/achievements";
 import Admin from "./pages/Admin/Admin";
 import AdminAuth from "./pages/Admin/AdminAuth";
+<<<<<<< HEAD
 import AdminBlog from "./pages/Admin/AdminBlog";
+=======
+import AdminOperations from "./pages/Admin/AdminOperations/AdminOperations";
+>>>>>>> bd80b75b43f2871120c8d33324a37b990cbf7466
 function App() {
   return (
     <main className="overflow-x-auto h-[100vh]">
@@ -36,8 +40,14 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/achievements" element={<Achievements />} />
+<<<<<<< HEAD
           <Route exact path="/admin" element={<Admin />} />
           <Route exact path="/admin/auth" element={<AdminAuth />} />
+=======
+          <Route exact path="/admin" element={<Admin/>}/>
+          <Route exact path="/admin/auth" element={<AdminAuth/>}/>
+          <Route exact path="/admin/:operation" element={<AdminOperations/>}/>
+>>>>>>> bd80b75b43f2871120c8d33324a37b990cbf7466
         </Routes>
         <Footer />
       </BrowserRouter>
