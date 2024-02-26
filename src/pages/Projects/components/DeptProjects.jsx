@@ -24,8 +24,8 @@ const DeptProjects = ({dept}) => {
 
       
     return (
-      <div className='mb-[150px] mt-[50px] mx-[50px]'>
-        <h1 className='mb-1 font-sans text-4xl antialiased font-semibold-300 leading-snug  tracking-normal text-white  m-auto  w-fit rounded-xl   p-[20px]'>{dept}</h1>
+      <div className='mb-[10rem] mt-[4px] mx-[2.5px]'>
+        <h1 className='mb-1 font-inter  font-semibold-500 leading-snug sm:2xl lg:4xl text-3xl tracking-normal text-white text-center m-auto  w-fit rounded-xl   p-[20px]'>{dept}</h1>
         <Carousel
           swipeable={true}
           draggable={true}
@@ -36,7 +36,7 @@ const DeptProjects = ({dept}) => {
           infinite={false}
           dotListClass="custom-dot-list-style"
           itemClass="carousel-item-padding-40-px"
-          className="bg-[#131417] m-[20px] rounded-xl box-border">
+          className="bg-[#131417] m-[1rem] rounded-xl box-border">
               <ProjectCard/>
               <ProjectCard/>
               <ProjectCard/>
