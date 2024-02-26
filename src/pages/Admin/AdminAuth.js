@@ -14,8 +14,22 @@ const AdminAuth = () => {
 
     setdata({ ...data, [e.target.name]: e.target.value })
   }
+  // const fetchadmin=async()=>{
+  //   if(!localStorage.getItem("AdminToken")){
+  //     return;
+  //   }
+  //   const res= await fetch("http://localhost:4000/admin/login",{
+  //     method:"POST",
+  //     headers:{
+  //       "content-type":"application/json",
+  //       token : localStorage.getItem("AdminToken")
+  //     }
+  //   })
+    
+  // }
 
   useEffect(() => {
+    // fetchadmin()
     if (admin) {
       navigation("/admin")
     }

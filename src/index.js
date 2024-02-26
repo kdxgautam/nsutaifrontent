@@ -5,12 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "./index.css"
 import AuthState from './context/AuthState';
+import AdminState from './context/Adminstate';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <AuthState>
+<AdminState>
 
     <App />
+</  AdminState>
     </AuthState>
   </React.StrictMode>
 );
