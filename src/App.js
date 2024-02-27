@@ -38,7 +38,11 @@ function App() {
           <Route path="/achievements" element={<Achievements />} />
           <Route exact path="/admin" element={<Admin />} />
           <Route exact path="/admin/auth" element={<AdminAuth />} />
+<<<<<<< HEAD
           <Route exact path="/admin/:operation" element={<AdminOperations/>}/>
+=======
+          <Route exact path="/admin/:operation" element={<AdminOperations />} />
+>>>>>>> 5be471fc35b0ba4e280b956461934b55861abf05
         </Routes>
         <Footer />
       </BrowserRouter>
