@@ -24,12 +24,6 @@ const AdminBlog = () => {
   return (
     <>
       <div>AdminBlog</div>
-      <UpdationModal
-        classname="flex justify-center"
-        details={details}
-        data={data}
-        setData={setData}
-      />
     </>
   );
 };

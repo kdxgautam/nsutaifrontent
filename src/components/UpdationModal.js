@@ -1,20 +1,24 @@
-import React, { useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { FaPlus } from "react-icons/fa";
 import { IoIosClose } from "react-icons/io";
+import Admincontext from "../context/Admincontext";
 
-const UpdationModal = ({ details, data, setData }) => {
+const UpdationModal = ({ id, variant }) => {
+  const { variants } = useContext(Admincontext);
   const host = "http://localhost:4000/";
   const [showModal, setShowModal] = useState(false);
+  const admin = localStorage.getItem("AdminToken");
 
-  const onChange = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
+  const [data, setData] = useState({});
+
+  const onChange = async (e) => {
+    setData({ ...data, [e.target.name.toLowerCase()]: e.target.value });
+    console.log(data);
   };
 
   const submit = async (data) => {
-    const admin = localStorage.getItem("AdminToken");
-
-    const res = await fetch(`${host}${details.endpoint}`, {
-      method: "POST",
+    const res = await fetch(`${host}${variant}/${id}`, {
+      method: "PATCH",
       headers: {
         "content-type": "Application/json",
         token: admin,
@@ -23,11 +27,28 @@ const UpdationModal = ({ details, data, setData }) => {
     });
 
     console.log(await res.json());
+    alert(await res.json());
   };
 
-  const modalTrigger = () => {
+  const modalTrigger = async () => {
     setShowModal(!showModal);
+    const res = await fetch(`${host}${variant}/${id}`, {
+      method: "GET",
+      headers: {
+        "content-type": "Application/json",
+        token: admin,
+      },
+    });
+    const newData = await res.json();
+    setData((prevData) => {
+      console.log(newData);
+      return newData;
+    });
+    console.log(newData);
   };
+  console.log(data);
+
+  useEffect(() => {});
 
   return (
     <div className="flex justify-center w-full">
@@ -37,7 +58,7 @@ const UpdationModal = ({ details, data, setData }) => {
         class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         type="button"
       >
-        Toggle modal
+        Edit
       </button>
 
       {showModal && (
@@ -52,7 +73,7 @@ const UpdationModal = ({ details, data, setData }) => {
               <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                 <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                   <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                    {details.modalTitle}
+                    Update Data
                   </h3>
                   <button
                     onClick={modalTrigger}
@@ -67,28 +88,29 @@ const UpdationModal = ({ details, data, setData }) => {
 
                 <form class="p-4 md:p-5">
                   <div class="grid gap-4 mb-4 grid-cols-2">
-                    {details.inputs.map((detail) => {
-                      return (
-                        <div class="col-span-2">
-                          <label
-                            for="name"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                          >
-                            {detail.title}
-                          </label>
-                          <input
-                            type={detail.type ? detail.type : "text"}
-                            name={detail.title}
-                            id="name"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            placeholder={detail.placeholder}
-                            onChange={onChange}
-                            value={data.value}
-                            required=""
-                          />
-                        </div>
-                      );
-                    })}
+                    {variant &&
+                      variants[variant].inputs.text.map((detail) => {
+                        return (
+                          <div class="col-span-2">
+                            <label
+                              for="name"
+                              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                            >
+                              {detail}
+                            </label>
+                            <input
+                              type="text"
+                              name={detail}
+                              id={detail}
+                              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                              placeholder={`Enter ${detail}`}
+                              onChange={onChange}
+                              value={data.detail}
+                              required=""
+                            />
+                          </div>
+                        );
+                      })}
                     <div class="col-span-2">
                       <label
                         for="description"
@@ -103,7 +125,8 @@ const UpdationModal = ({ details, data, setData }) => {
                         class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Write Content here"
                         onChange={onChange}
-                        value={data.value}
+                        defaultValue={data.detail}
+                        value={data.detail}
                       ></textarea>
                     </div>
                   </div>
@@ -116,7 +139,7 @@ const UpdationModal = ({ details, data, setData }) => {
                     class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                   >
                     <FaPlus className="mr-1" />
-                    {details.buttonContent}
+                    submit
                   </button>
                 </form>
               </div>
