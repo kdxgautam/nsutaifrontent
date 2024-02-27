@@ -7,6 +7,7 @@ const host = "http://localhost:4000/";
 const AuthState = (props) => {
   const [user, setuser] = useState(null);
   const [admin, setadmin] = useState(null);
+  
 
   const handlesignin = () => {
     signInWithPopup(auth, provider)
@@ -47,6 +48,8 @@ const AuthState = (props) => {
       alert(`error: ${responsedata.error}`);
     }
   };
+
+  
   return (
     <Authcontext.Provider
       value={{

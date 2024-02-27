@@ -6,7 +6,7 @@ const Home = () => {
     return (
         <div className='' >
             <section id='Hero' className='bg-gradient-to-b from-[#000000] to-[#030612]'>
-                <video src="/images/rips.mp4" autoPlay="true" className='w-full md:h-[70vh] lg:h-[70vh] sm:h-[40vh] flex px-2' />
+                <video src="/assets/videos/rips.mp4" autoPlay={true} muted className='w-full md:h-[90vh] lg:h-[90vh] sm:h-[40vh] flex px-2' />
                 
             </section>
             <div className=' bg-gradient-to-r from-[#030612]  via-[#030612]  to-[#030612] h-[50vh] flex justify-center items-center'>

@@ -8,33 +8,31 @@ const AdminAuth = () => {
 
   const navigation = useNavigate();
 
-  const { admin, handleAdminLogin } = useContext(Authcontext);
+  const { admin,setadmin, handleAdminLogin } = useContext(Authcontext);
   const handleonChange = (e) => {
     setdata({ ...data, [e.target.name]: e.target.value });
   };
 
-  // const fetchadmin=async()=>{
-  //   if(!localStorage.getItem("AdminToken")){
-  //     return;
-  //   }
-  //   const res= await fetch("http://localhost:4000/admin/login",{
-  //     method:"POST",
-  //     headers:{
-  //       "content-type":"application/json",
-  //       token : localStorage.getItem("AdminToken")
-  //     }
-  //   })
-  // }
+  const fetchadmin=async()=>{
+    if(!localStorage.getItem("AdminToken")){
+      return;
+    }
+    const res= await fetch("http://localhost:4000/admin/login",{
+      method:"POST",
+      headers:{
+        "content-type":"application/json",
+        token : localStorage.getItem("AdminToken")
+      }
+    })
+    const resdata = await res.json()
+    setadmin(resdata)
+  }
 
-  return (
-    <div>
-      {/* Your component JSX */}
-    </div>
-  );
+
 
 
   useEffect(() => {
-    // fetchadmin()
+    fetchadmin()
     if (admin) {
       navigation("/admin");
     }

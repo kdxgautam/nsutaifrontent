@@ -1,12 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import Modal from '../../../components/modal'
 import Admincontext from '../../../context/Admincontext'
+import Authcontext from '../../../context/Authcontext'
 const host = "http://localhost:4000/"
 const AdminOperations = () => {
     const params = useParams()
     const [items, setitems] = useState([])
     const { togglemodal}= useContext(Admincontext)
+    const {admin}= useContext(Authcontext)
+    const navigation= useNavigate()
     const fetchthings = async (data) => {
         const res = await fetch(host + data + "/all")
         const resdata = await res.json()
@@ -14,7 +17,10 @@ const AdminOperations = () => {
     }
     useEffect(() => {
         fetchthings(params.operation)
-    }, [params])
+        if(!admin){
+            navigation("/admin/auth")
+        }
+    }, [params, admin])
     return (
         <div className='h-[100vh] w-full flex flex-col px-5'>
             <Modal variant={params.operation} />

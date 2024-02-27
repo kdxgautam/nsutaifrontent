@@ -17,6 +17,7 @@ import Achievements from "./pages/Achievements/achievements";
 import Admin from "./pages/Admin/Admin";
 import AdminAuth from "./pages/Admin/AdminAuth";
 import AdminBlog from "./pages/Admin/AdminBlog";
+import AdminOperations from "./pages/Admin/AdminOperations/AdminOperations";
 function App() {
   return (
     <main className="overflow-x-auto h-[100vh]">
@@ -26,7 +27,6 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<SingleBlog />} />
-          <Route path="/admin/blogs" element={<AdminBlog />} />
           <Route path="/events" element={<Event />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/about" element={<AboutPage />} />
@@ -38,6 +38,7 @@ function App() {
           <Route path="/achievements" element={<Achievements />} />
           <Route exact path="/admin" element={<Admin />} />
           <Route exact path="/admin/auth" element={<AdminAuth />} />
+          <Route exact path="/admin/:operation" element={<AdminOperations/>}/>
         </Routes>
         <Footer />
       </BrowserRouter>

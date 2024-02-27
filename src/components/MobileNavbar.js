@@ -1,13 +1,19 @@
 import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Button from './Button'
 import { signOut } from '@firebase/auth'
 import { auth } from '../config'
 import Authcontext from '../context/Authcontext'
 
 const MobileNavbar = () => {
-  const {user, setuser}= useContext(Authcontext)
+  const {user, setuser, admin, setadmin}= useContext(Authcontext)
 
+  const navigation= useNavigate()
+  const handleAdminSignout=async()=>{
+    localStorage.removeItem("AdminToken")
+    setadmin(null)
+    navigation("/admin/auth")
+  }
   const handlesignout = async () => {
     signOut(auth).then(() => {
       setuser(null)
@@ -15,6 +21,7 @@ const MobileNavbar = () => {
       console.log(err)
     })
   }
+  
   return (
     <div className=' fade-in  '>
         <nav>
@@ -36,7 +43,7 @@ const MobileNavbar = () => {
         </Link>
         <div className='pt-3 py-2  gap-2  '>
 
-{!user &&
+{!(admin || user) &&
   <div className='flex justify-center w-auto '>
     <div  className='px-3 cursor-pointer w-1/5 py-3 text-[1.1rem] font-light'>
 
@@ -57,7 +64,7 @@ const MobileNavbar = () => {
   </div>
 }
 {user && <div onClick={() => handlesignout()}><Button bgColor="bg-[#415ED0] mx-7" bgOnhover="bg-blue-700" onClick={handlesignout}>SignOut</Button></div>}
-
+{!user && admin && <div onClick={() => handlesignout()}><Button bgColor="bg-[#415ED0] mx-7" bgOnhover="bg-blue-700" onClick={handleAdminSignout}>SignOut</Button></div>}
 </div>
             </ul>
 

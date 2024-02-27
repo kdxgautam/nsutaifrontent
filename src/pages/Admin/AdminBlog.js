@@ -1,5 +1,5 @@
 import React from "react";
-import Modal from "../../components/Modal";
+import UpdationModal from "../../components/UpdationModal";
 import { useState } from "react";
 
 const AdminBlog = () => {
@@ -24,7 +24,7 @@ const AdminBlog = () => {
   return (
     <>
       <div>AdminBlog</div>
-      <Modal
+      <UpdationModal
         classname="flex justify-center"
         details={details}
         data={data}

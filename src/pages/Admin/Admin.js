@@ -7,12 +7,13 @@ const Admin = () => {
     const {admin}= useContext(Authcontext)
     useEffect(()=>{
         if(!admin){
+          console.log("no admin found")
             navigation("/admin/auth")
         }
     })
   return (
     <div className='h-[80vh] p-10'>
-      <h1 className='text-[3rem] flex w-full justify-center'>Admin Options</h1>
+      <h1 className='text-[3rem] flex w-full justify-center'>Admin Dashboard</h1>
       <div className='my-20 lg:grid lg:grid-cols-3 md:grid md:grid-cols-2 sm:flex sm:flex-wrap gap-5 justify-items-center'>
         
           <Link to="/admin/blogs">

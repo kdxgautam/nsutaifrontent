@@ -2,14 +2,20 @@ import React, { useContext, useState } from 'react'
 import Button from './Button'
 import { GiHamburgerMenu } from "react-icons/gi";
 import MobileNavbar from './MobileNavbar';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import Authcontext from '../context/Authcontext';
+import Admincontext from '../context/Admincontext';
 
 const Navbar = () => {
   const [showMobileNav, setshowMobileNav] = useState(false)
-  const { user,  handlesignout } = useContext(Authcontext)
-
+  const { user,admin,setadmin,   handlesignout } = useContext(Authcontext)
+  const navigation= useNavigate()
+  const handleAdminSignout=async()=>{
+    localStorage.removeItem("AdminToken")
+    setadmin(null)
+    navigation("/admin/auth")
+  }
   
   const toggleNav = () => {
     setshowMobileNav(!showMobileNav)
@@ -67,7 +73,7 @@ const Navbar = () => {
         </div>
         <div className='pt-3 py-2  gap-2  '>
 
-          {!user &&
+          {!(admin || user) &&
             <div className=' lg:flex hidden'>
               <div >
                 <Button label="Login" bgColor="bg-transparent" border="border border-white" bgOnhover="bg-white" textOnhover="text-black" textColor="text-white" >
@@ -90,7 +96,16 @@ const Navbar = () => {
             <Button bgColor="bg-[#415ED0]" bgOnhover="bg-blue-700" label="Signout" >
               SignOut
             </Button>
-          </div>}
+          </div>
+        }
+        {!user  && admin && 
+                   <div className='lg:flex hidden' onClick={handleAdminSignout}>
+                   
+                   <Button bgColor="bg-[#415ED0]" bgOnhover="bg-blue-700" label="Signout" >
+                     SignOut
+                   </Button>
+                 </div>
+                 }
 
         </div>
       </nav>
