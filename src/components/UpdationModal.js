@@ -27,7 +27,6 @@ const UpdationModal = ({ id, variant }) => {
     });
 
     console.log(await res.json());
-    alert(await res.json());
   };
 
   const modalTrigger = async () => {
