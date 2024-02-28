@@ -3,13 +3,13 @@ import { FaPlus } from "react-icons/fa";
 import { IoIosClose } from "react-icons/io";
 import Admincontext from "../context/Admincontext";
 
-const UpdationModal = ({ id, variant }) => {
+const UpdationModal = ({ all, variant }) => {
   const { variants } = useContext(Admincontext);
   const host = "http://localhost:4000/";
   const [showModal, setShowModal] = useState(false);
   const admin = localStorage.getItem("AdminToken");
 
-  const [data, setData] = useState({});
+  const [data, setData] = useState(all);
 
   const onChange = async (e) => {
     setData({ ...data, [e.target.name.toLowerCase()]: e.target.value });
@@ -17,7 +17,7 @@ const UpdationModal = ({ id, variant }) => {
   };
 
   const submit = async (data) => {
-    const res = await fetch(`${host}${variant}/${id}`, {
+    const res = await fetch(`${host}${variant}/${all._id}`, {
       method: "PATCH",
       headers: {
         "content-type": "Application/json",
@@ -25,29 +25,14 @@ const UpdationModal = ({ id, variant }) => {
       },
       body: JSON.stringify(data),
     });
-
+    setShowModal(!showModal);
     console.log(await res.json());
   };
 
   const modalTrigger = async () => {
     setShowModal(!showModal);
-    const res = await fetch(`${host}${variant}/${id}`, {
-      method: "GET",
-      headers: {
-        "content-type": "Application/json",
-        token: admin,
-      },
-    });
-    const newData = await res.json();
-    setData((prevData) => {
-      console.log(newData);
-      return newData;
-    });
-    console.log(newData);
   };
   console.log(data);
-
-  useEffect(() => {});
 
   return (
     <div className="flex justify-center w-full">

@@ -25,14 +25,12 @@ const AdminOperations = () => {
         token: localStorage.getItem("AdminToken"),
       },
     });
-    let resdata= await res.json()
-    if(resdata.success){
-        alert("deleted successfully")
+    let resdata = await res.json();
+    if (resdata.success) {
+      alert("deleted successfully");
+    } else {
+      alert("error");
     }
-    else{
-        alert("error")
-    }
-    
   };
 
   useEffect(() => {
@@ -99,7 +97,7 @@ const AdminOperations = () => {
                   </td>
                   <td className="p-4 border-b border-blue-gray-50">
                     <button className="block font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">
-                      <UpdationModal variant={params.operation} id={e._id} />
+                      <UpdationModal variant={params.operation} all={e} />
                     </button>
                   </td>
                   <td className="p-4 border-b border-blue-gray-50">
