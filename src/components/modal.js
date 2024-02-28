@@ -8,7 +8,9 @@ const Modal = (props) => {
 
     const [data, setdata]= useState({title:"", description:"", author:"" , image:"",slug:"" ,department:"", github:"", venue:""})
     
-    
+    const resetdata=()=>{
+        setdata({title:"", description:"", author:"" , image:"",slug:"" ,department:"", github:"", venue:""})
+    }
     const handleonchange=async(e)=>{
         setdata({...data, [e.target.name.toLowerCase()]:e.target.value})
         console.log(data)
@@ -44,7 +46,7 @@ const Modal = (props) => {
                     </div>
                     )}
                 </div>
-                <div className='flex p-4' onClick={()=>{handleModalSubmit(data, "POST", variant , "create" , token)}}>
+                <div className='flex p-4' onClick={()=>{handleModalSubmit(data, "POST", variant , "create" , token);resetdata()}}>
                     {variant && variants[variant].button.map((e)=>
                     <Button bgColor="bg-black" >
                         {e}

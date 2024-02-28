@@ -21,17 +21,17 @@ const Home = () => {
                 <HomeNews />
                 <section id='events' className='flex mb-60 mt-20 justify-center items-center flex-col'>
                     <h1 className=' text-2xl my-2 font-light underline underline-offset-4'>
-                        <Link to="/events">
+                        <Link to="/events" >
                     Events
                         </Link>
                     </h1>
-                    <HomeCardsContainer />
+                    <HomeCardsContainer type="events" link="/event" />
                 </section >
                 <section id='blogs' className='flex my-60 justify-center items-center flex-col'>
                     <h1 className=' text-2xl my-2 font-light underline underline-offset-4'><Link to="/blogs">
                     Blogs
                         </Link></h1>
-                    <HomeCardsContainer />
+                    <HomeCardsContainer type="blogs" link="/blog" />
                 </section >
                 <section id='projects' className='flex my-60 justify-center items-center flex-col'>
 
@@ -41,11 +41,11 @@ const Home = () => {
                         </Link>
                     </h1>
                         
-                    <HomeCardsContainer />
+                    <HomeCardsContainer type="projects" link="/project" />
                 </section >
                 <section id='achievements' className='flex mt-60 justify-center items-center flex-col'>
                     <h1 className=' text-2xl my-2 font-light underline underline-offset-4'>Achievements</h1>
-                    <HomeCardsContainer />
+                    <HomeCardsContainer type="achievements" link="/achievement" />
                 </section>
             </div>
         </div>

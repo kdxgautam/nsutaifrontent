@@ -25,7 +25,14 @@ const AdminOperations = () => {
         token: localStorage.getItem("AdminToken"),
       },
     });
-    alert(await res.json());
+    let resdata= await res.json()
+    if(resdata.success){
+        alert("deleted successfully")
+    }
+    else{
+        alert("error")
+    }
+    
   };
 
   useEffect(() => {

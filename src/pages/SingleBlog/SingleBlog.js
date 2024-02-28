@@ -1,20 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineLike } from "react-icons/ai";
 import { TfiCommentAlt } from "react-icons/tfi";
 import { FaRegShareSquare } from "react-icons/fa";
-
+import { useParams } from "react-router-dom";
+const host="http://localhost:4000"
 const SingleBlog = () => {
+  const {id}= useParams()
+   
+  const [blog , setblog]= useState()
+  const fetchthings=async()=>{
+    const token =localStorage.getItem("AdminToken")
+    if(!token){
+      alert("Not authorised")
+      return;
+    }
+
+    const res= await fetch(`${host}/blogs/${id}`,{
+      method:"GET",
+      headers:{
+        token:token
+      }
+    })
+    const resdata= await res.json()
+    console.log(resdata)
+     setblog(resdata)
+  }
+  useEffect(()=>{
+    fetchthings()
+  },[])
   return (
-    <div className=" flex flex-col  mx-[20%] mt-[5%] px-[30px] max-lg:mx-[2%] max-lg:px-[10px]">
+    <>
+    {blog ?
+      <div className=" flex flex-col  mx-[20%] mt-[5%] px-[30px] max-lg:mx-[2%] max-lg:px-[10px]">
       <img
         className="  h-[20rem] lg:h-[30rem] rounded-2xl mb-11"
-        src="https://images.unsplash.com/photo-1674027444485-cec3da58eef4?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        alt="card"
+        src={blog.image ? blog.image : ""}
+        alt="Blog Image"
       />
       <div className="flex space-x-2">
         <h5>Technology</h5>
         <h5>|</h5>
-        <h5>January 26,2024</h5>
+        <h5>{blog.createdAt.slice(0,10)}</h5>
       </div>
       <div className="flex space-x-3 my-5">
         <img
@@ -23,7 +49,7 @@ const SingleBlog = () => {
           alt="author image"
         />
         <div className="flex flex-col">
-          <h5 className="pt-1">Author's name </h5>
+          <h5 className="pt-1">{blog.author} </h5>
           <div className="flex  pt-3 space-x-4 ">
             <AiOutlineLike className=" h-5 w-5" />
             <TfiCommentAlt className="h-5 w-5" />
@@ -33,30 +59,14 @@ const SingleBlog = () => {
       </div>
       <div>
         <h1 className="my-11 text-4xl tracking-tight font-extrabold text-white-500 max-lg:text-3xl">
-          Find more great partners
+          {blog.title}
         </h1>
         <prev className="leading-loose">
-          It really matters and then like it really doesn't matter. What matters
-          is the people who are sparked by it. And the people who are like
-          offended by it, it doesn't matter. We are here to make life better.
-          And now I look and look around and there's so many Kanyes I've been
-          trying to figure out the bed design for the master bedroom at our
-          Hidden Hills compound... and thank you for turning my personal jean
-          jacket into a couture piece.I speak yell scream directly at the old
-          guard on behalf of the future. daytime All respect prayers and love to
-          Phife's family Thank you for so much inspiration. "And thank you for
-          turning my personal jean jacket into a couture piece." avatar — Kanye
-          West, Producer And now I look and look around and there's so many
-          Kanyes I've been trying to figure out the bed design for the master
-          bedroom at our Hidden Hills compound... and thank you for turning my
-          personal jean jacket into a couture piece. I love this new Ferg album!
-          The Life of Pablo is now available for purchase I have a dream. Thank
-          you to everybody who made The Life of Pablo the number 1 album in the
-          world! I'm so proud of the nr #1 song in the country. Panda! Good
-          music!
+          {blog.description}
         </prev>
       </div>
-      <div>
+      {/* tags  */}
+      {/* <div>
         <h3 className="texl-lg text-white my-11 underline-offset-8 underline decoration-wavy decoration-[#415ED0]">
           Tags:
         </h3>
@@ -74,12 +84,15 @@ const SingleBlog = () => {
             Research
           </li>
         </ul>
-      </div>
-      <div class="bg-gray-900 py-8 lg:py-16 antialiased rounded-lg my-11">
+      </div> */}
+
+      {/* comments  */}
+      {/* <div class="bg-gray-900 py-8 lg:py-16 antialiased rounded-lg my-11">
         <div class="max-w-2xl mx-auto px-4">
           <div class="flex justify-between items-center mb-6">
             <h2 class="text-lg lg:text-2xl font-bold text-white">Comments</h2>
           </div>
+           
           <form class="mb-6">
             <div class="py-2 px-4 mb-4  rounded-lg rounded-t-lg border bg-gray-800 border-gray-700">
               <label for="comment" class="sr-only">
@@ -101,9 +114,14 @@ const SingleBlog = () => {
             </button>
           </form>
         </div>
-      </div>
+      </div> */}
+    </div> 
+    : <div>
+      Loading
     </div>
-  );
+  }
+  </>
+  )
 };
 
 export default SingleBlog;

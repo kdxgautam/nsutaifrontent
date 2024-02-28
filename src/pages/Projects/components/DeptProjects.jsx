@@ -2,7 +2,9 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import ProjectCard from "./ProjectCard";
 
-const DeptProjects = ({dept}) => {
+
+const DeptProjects = ({dept, projects}) => {
+
     const responsive = {
         superLargeDesktop: {
           breakpoint: { max: 4000, min: 3000 },
@@ -37,11 +39,7 @@ const DeptProjects = ({dept}) => {
           dotListClass="custom-dot-list-style"
           itemClass="carousel-item-padding-40-px"
           className="bg-[#131417] m-[1rem] rounded-xl box-border">
-              <ProjectCard/>
-              <ProjectCard/>
-              <ProjectCard/>
-              <ProjectCard/>
-              <ProjectCard/> 
+              {projects.length>0 && projects.map((project)=><ProjectCard project={project} />)}
         </Carousel>
       </div>
     )

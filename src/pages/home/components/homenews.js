@@ -1,54 +1,54 @@
-import React from 'react'
-
 import { IoNewspaperOutline } from "react-icons/io5";
+import React, { useEffect, useState } from 'react'
+const host = "http://localhost:4000"
 
 const HomeNews = () => {
-  return (
-    <section id='news' className='flex overflow-y-auto flex-col w-2/3 m-auto rounded-3xl p-14 h-[60vh] bg-[#0B122F]' >
-                    <div className=' text-3xl mb-5'>
-                        <IoNewspaperOutline />
-                    </div>
-                    <ul className='flex list-disc h-full flex-col w-[98%]'>
-                        {/* this contains news  */}
+    const [news, setnews] = useState([])
+    const fetchnews = async () => {
+        if (!localStorage.getItem("AdminToken")) {
+            alert("Not Authorised")
+            return;
+        }
+        const res = await fetch(`${host}/news/all`, {
+            method: "GET",
+            headers: {
+                token: localStorage.getItem("AdminToken")
+            }
+        })
+        const resdata = await res.json()
+        console.log(resdata)
+        setnews(resdata)
+    }
+    useEffect(()=>{
+        fetchnews()
+    },[])
+    return (
+        <section id='news' className='flex overflow-y-auto flex-col w-2/3 m-auto rounded-3xl p-14 h-[60vh] bg-[#0B122F]' >
+            <div className=' text-3xl mb-5'>
+                <IoNewspaperOutline />
+            </div>
+            <ul className='flex list-disc h-full flex-col w-[98%]'>
+                {/* this contains news  */}
 
-                        <hr />
+                <hr />
+                {news.length>0 && news.map((e) =>
+                    <>
                         <li className='w-full cursor-pointer mt-1 mb-10'>
                             <div className='flex'>
 
-                                
-                                <div><p className=' font-bold mr-2'>Title:</p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam ab ratione adipisci illum quidem unde velit fuga accusantium corporis cumque consequatur voluptatum eaque, amet fugiat exercitationem atque ut nisi error!
+
+                                <div><p className=' font-bold mr-2'>{e.title}:</p>{e.description}
                                 </div>
                             </div>
                         </li>
-                        
-                        <hr />
-                        <li className='w-full cursor-pointer mt-1 mb-10'>
-                            <div className='flex'>
 
-                                
-                                <div><p className=' font-bold mr-2'>Title:</p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam ab ratione adipisci illum quidem unde velit fuga accusantium corporis cumque consequatur voluptatum eaque, amet fugiat exercitationem atque ut nisi error!
-                                </div>
-                            </div>
-                        </li>
                         <hr />
-                        <li className='w-full cursor-pointer mt-1 mb-10'>
-                            <div className='flex'>
-
-                                
-                                <div><p className=' font-bold mr-2'>Title:</p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam ab ratione adipisci illum quidem unde velit fuga accusantium corporis cumque consequatur voluptatum eaque, amet fugiat exercitationem atque ut nisi error!</div>
-                            </div>
-                        </li>
-                        <hr />
-                        <li className='w-full cursor-pointer mt-1 mb-10'>
-                            <div className='flex'>
-
-                                
-                                <div><p className=' font-bold mr-2'>Title:</p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam ab ratione adipisci illum quidem unde velit fuga accusantium corporis cumque consequatur voluptatum eaque, amet fugiat exercitationem atque ut nisi error!</div>
-                            </div>
-                        </li>
-                    </ul>
-                </section>
-  )
+                    </>
+                )}
+              
+            </ul>
+        </section>
+    )
 }
 
 export default HomeNews
