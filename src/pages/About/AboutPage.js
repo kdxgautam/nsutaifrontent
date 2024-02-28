@@ -15,7 +15,7 @@ const AboutPage = () => {
 
 
   const fetchProfile = async () => {
-    let res = await fetch(host + "/about/all");
+    let res = await fetch(host + "/profile/all");
     let resdata = await res.json();
     setProfile(resdata);
   };
