@@ -3,7 +3,7 @@ import { signOut } from "firebase/auth";
 import { useState } from "react";
 import Authcontext from "./Authcontext";
 import { auth, provider } from "../config";
-const host = "http://localhost:4000/";
+const host = process.env.REACT_APP_BACKEND;
 const AuthState = (props) => {
   const [user, setuser] = useState(null);
   const [admin, setadmin] = useState(null);
@@ -30,7 +30,7 @@ const AuthState = (props) => {
   };
 
   const handleAdminLogin = async (data) => {
-    const res = await fetch(host + "admin/login", {
+    const res = await fetch(host+"/" + "admin/login", {
       method: "POST",
       headers: {
         "content-type": "Application/json",

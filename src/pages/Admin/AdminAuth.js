@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import Authcontext from "../../context/Authcontext";
 import { Link, useNavigate } from "react-router-dom";
-// const host = "http://localhost:4000/"
+
 
 const AdminAuth = () => {
   const [data, setdata] = useState({ email: "", password: "" });

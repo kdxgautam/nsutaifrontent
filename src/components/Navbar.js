@@ -5,7 +5,6 @@ import MobileNavbar from './MobileNavbar';
 import { Link, useNavigate } from 'react-router-dom';
 
 import Authcontext from '../context/Authcontext';
-import Admincontext from '../context/Admincontext';
 
 const Navbar = () => {
   const [showMobileNav, setshowMobileNav] = useState(false)

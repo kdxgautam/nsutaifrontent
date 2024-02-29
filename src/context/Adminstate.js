@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Admincontext from "./Admincontext";
-const host = "http://localhost:4000";
-
+const host = process.env.REACT_APP_BACKEND
+const cloudlink= process.env.REACT_APP_CLOUDINARY
 
 const AdminState = (props) => {
     const [showmodal, setshowmodal] = useState(false)
@@ -45,7 +45,7 @@ const AdminState = (props) => {
         form.append("cloud_name", "djxl5ybch");
 
         const res = await fetch(
-            "https://api.cloudinary.com/v1_1/djxl5ybch/image/upload",
+            cloudlink,
             {
                 method: "POST",
                 body: form,

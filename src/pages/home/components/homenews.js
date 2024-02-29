@@ -1,6 +1,6 @@
 import { IoNewspaperOutline } from "react-icons/io5";
 import React, { useEffect, useState } from 'react'
-const host = "http://localhost:4000"
+const host = process.env.REACT_APP_BACKEND
 
 const HomeNews = () => {
     const [news, setnews] = useState([])

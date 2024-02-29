@@ -2,15 +2,12 @@
 import React, { useEffect, useState } from 'react';
 import DeptProjects from "./components/DeptProjects";
 import Hero from "./components/Hero";
-const host= "http://localhost:4000"
+const host = process.env.REACT_APP_BACKEND
 
 const Projects = () => {
   const [projects, setprojects]= useState([])
   const fetchprojects = async () => {
-    if (!localStorage.getItem("AdminToken")) {
-        alert("Not Authorised")
-        return;
-    }
+    
     const res = await fetch(`${host}/projects/all`, {
         method: "GET",
         headers: {

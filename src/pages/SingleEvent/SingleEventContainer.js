@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SingleEventFunc from "./SingleEvent";
-const host = "http://127.0.0.1:4000";
+const host= process.env.REACT_APP_BACKEND
 
 const SingleEventCardContainer = () => {
   const [SingleEvents, setSingleEvents] = useState([]);

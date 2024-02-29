@@ -3,12 +3,12 @@ import ProfileCard from "./components/ProfileCard";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-const host = "http://localhost:4000";
+const host = process.env.REACT_APP_BACKEND;
 
-const ProfilePage = () => {
+const ProfilePage = (props) => {
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
-  const [profile, setProfile] = useState({});
+  const [profile, setProfile] = useState(props.person);
 
   useEffect(() => {
     const fetchProfile = async () => {

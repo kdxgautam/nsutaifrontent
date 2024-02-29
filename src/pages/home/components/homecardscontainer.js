@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import HomeCard from './homecard'
-const host="http://localhost:4000"
+const host = process.env.REACT_APP_BACKEND
 const HomeCardsContainer = (props) => {
   const {type,link}= props
   const [data, setdata]= useState([])
