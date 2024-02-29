@@ -21,7 +21,7 @@ const UpdationModal = ({ id, variant , element}) => {
   };
 
   const submit = async (data) => {
-    const res = await fetch(`${host}${variant}/${all._id}`, {
+    const res = await fetch(`${host}${variant}/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

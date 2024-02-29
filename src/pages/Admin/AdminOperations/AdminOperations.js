@@ -21,7 +21,7 @@ const AdminOperations = () => {
     });
     let resdata= await res.json()
     if(resdata.success){
-        let temp= items.filter((item)=>item._id!=id)
+        let temp= items.filter((item)=>item._id!==id)
         setitems(temp)
         alert("deleted successfully")
 
