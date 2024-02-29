@@ -9,7 +9,7 @@ const Modal = (props) => {
     const [data, setdata]= useState({title:"", description:"", author:"" , image:"",slug:"" ,department:"", github:"", venue:""})
     
     const resetdata=()=>{
-        setdata({title:"", description:"", author:"" , image:"",slug:"" ,department:"", github:"", venue:""})
+        setdata({title:"", description:"", author:"" , image:   "",slug:"" ,department:"", github:"", venue:""})
     }
     const handleonchange=async(e)=>{
         setdata({...data, [e.target.name.toLowerCase()]:e.target.value})

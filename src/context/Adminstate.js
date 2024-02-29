@@ -5,6 +5,7 @@ const host="http://localhost:4000"
 const AdminState= (props)=>{
     const [showmodal,setshowmodal]= useState(false)
     const [token, settoken]= useState(null)
+    const [items, setitems] = useState([]);
     const [variants, setvariants] = useState({
         "blogs": {
             inputs: { text: ["Title", "Slug", "Author"], file: "image" },
@@ -23,8 +24,20 @@ const AdminState= (props)=>{
 
             textarea: ["Description"],
             button: ["Submit"]
+        },
+        "news":{
+            inputs:{text:["Title"]},
+            textarea:["Description"],
+            button:["Submit"]
         }
     })
+    
+  const fetchthings = async (data) => {
+    const res = await fetch(host +"/"+ data + "/all");
+    const resdata = await res.json();
+    setitems(resdata);
+  };
+
     const handleModalSubmit=async(data,requestType,variant,operation ,token)=>{
         if(!token){
             console.log("token not found")
@@ -40,14 +53,21 @@ const AdminState= (props)=>{
             }
         })
         const resdata= await res.json()
-        alert(resdata )
+        if(resdata.success){
+            alert("Created Successfully")
+            
+            setitems([...items, resdata.new])
+        }
+        else{
+            alert(JSON.stringify(resdata))
+        }
         
     }
     const togglemodal=()=>{
         setshowmodal(!showmodal)
     }
     return(
-        <Admincontext.Provider value={{showmodal, setshowmodal,variants,handleModalSubmit, togglemodal, token ,settoken}}>
+        <Admincontext.Provider value={{showmodal, setshowmodal,variants,handleModalSubmit,fetchthings,items, setitems, togglemodal, token ,settoken}}>
             {props.children}
         </Admincontext.Provider>
     )

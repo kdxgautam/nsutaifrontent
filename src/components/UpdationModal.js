@@ -3,50 +3,58 @@ import { FaPlus } from "react-icons/fa";
 import { IoIosClose } from "react-icons/io";
 import Admincontext from "../context/Admincontext";
 
-const UpdationModal = ({ id, variant }) => {
+const UpdationModal = ({ id, variant , element}) => {
   const { variants } = useContext(Admincontext);
   const host = "http://localhost:4000/";
   const [showModal, setShowModal] = useState(false);
   const admin = localStorage.getItem("AdminToken");
 
-  const [data, setData] = useState({});
+  const [data, setData] = useState({...element});
 
   const onChange = async (e) => {
+    
     setData({ ...data, [e.target.name.toLowerCase()]: e.target.value });
-    console.log(data);
+    console.log(data)
   };
 
   const submit = async (data) => {
     const res = await fetch(`${host}${variant}/${id}`, {
       method: "PATCH",
       headers: {
-        "content-type": "Application/json",
+        "content-type": "application/json",
         token: admin,
       },
       body: JSON.stringify(data),
     });
 
-    console.log(await res.json());
-    alert(await res.json());
+    let resdata= await res.json()
+    console.log(resdata)
+    if(resdata.success){
+      alert("Updated Succesfully")
+    }
+    else{
+      alert(resdata.error)
+    }
   };
 
   const modalTrigger = async () => {
+    
     setShowModal(!showModal);
-    const res = await fetch(`${host}${variant}/${id}`, {
-      method: "GET",
-      headers: {
-        "content-type": "Application/json",
-        token: admin,
-      },
-    });
-    const newData = await res.json();
-    setData((prevData) => {
-      console.log(newData);
-      return newData;
-    });
-    console.log(newData);
+    // const res = await fetch(`${host}${variant}/${id}`, {
+    //   method: "GET",
+    //   headers: {
+    //     "content-type": "Application/json",
+    //     token: admin,
+    //   },
+    // });
+    // const newData = await res.json();
+    // setData((prevData) => {
+      
+    //   return newData;
+    // });
+    
   };
-  console.log(data);
+  
 
   useEffect(() => {});
 
@@ -105,6 +113,7 @@ const UpdationModal = ({ id, variant }) => {
                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                               placeholder={`Enter ${detail}`}
                               onChange={onChange}
+                              defaultValue={element[`${detail.toLowerCase()}`]}
                               value={data.detail}
                               required=""
                             />
@@ -125,7 +134,7 @@ const UpdationModal = ({ id, variant }) => {
                         class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Write Content here"
                         onChange={onChange}
-                        defaultValue={data.detail}
+                        defaultValue={element.description}
                         value={data.detail}
                       ></textarea>
                     </div>

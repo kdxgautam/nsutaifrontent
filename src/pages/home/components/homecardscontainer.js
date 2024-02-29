@@ -15,7 +15,7 @@ const HomeCardsContainer = (props) => {
   return (
     <div className='sm:flex sm:flex-wrap sm:items-center  md:grid md:grid-cols-2 lg:grid-cols-3
      w-4/5  my-3 justify-items-center py-2 '>
-        {data.length>0 && data.map((e)=><HomeCard image={e.image? e.image : ""} link={link} element={e} />)}
+        {data.length>0 && data.map((e)=><HomeCard image={e.image? e.image : "/images/img.jpg"} link={link} element={e} />)}
 
         
     </div>
