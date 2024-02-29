@@ -16,7 +16,6 @@ import Contact from "./pages/contact/contact";
 import Achievements from "./pages/Achievements/achievements";
 import Admin from "./pages/Admin/Admin";
 import AdminAuth from "./pages/Admin/AdminAuth";
-import AdminBlog from "./pages/Admin/AdminBlog";
 import AdminOperations from "./pages/Admin/AdminOperations/AdminOperations";
 function App() {
   return (
