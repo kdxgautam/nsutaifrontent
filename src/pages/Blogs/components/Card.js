@@ -1,16 +1,18 @@
 import React from "react";
 import { AiOutlineLike } from "react-icons/ai";
 import { MdOutlineInsertComment } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 const Card = (props) => {
-  const {title,content ,image , author ,comments }= props
+  const navigation = useNavigate();
+  const navig = (id) => {
+    navigation(`/blog/${id}`);
+  };
+  const { title, content, image, author, comments, id } = props;
   return (
     <div class="relative flex flex-col mt-6 text-white-700 bg-black bg-opacity-[63%] bg-clip-border shadow-2xl card  rounded-2xl  ">
       <div class="relative h-full mx-4 -mt-6 overflow-hidden text-white shadow-lg bg-clip-border rounded-xl bg-blue-gray-500 shadow-blue-gray-500/40">
-        <img
-          src={image}
-          alt="card-image"
-        />
+        <img src={image} alt="card-image" />
       </div>
       <div class="p-6 ">
         <h5 class="block mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-white">
@@ -24,6 +26,7 @@ const Card = (props) => {
         <button
           class="align-middle  flex  select-none font-sans font-bold text-center uppercase transition-all border-2 border-transparent disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-[#415ED0] text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-black-900/20 hover:bg-transparent hover:border-2 hover:border-[#415ED0] focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
           type="button"
+          onClick={() => navig(id)}
         >
           Read More
         </button>

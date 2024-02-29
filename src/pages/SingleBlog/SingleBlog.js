@@ -3,70 +3,69 @@ import { AiOutlineLike } from "react-icons/ai";
 import { TfiCommentAlt } from "react-icons/tfi";
 import { FaRegShareSquare } from "react-icons/fa";
 import { useParams } from "react-router-dom";
-const host="http://localhost:4000"
+const host = "http://localhost:4000";
 const SingleBlog = () => {
-  const {id}= useParams()
-   
-  const [blog , setblog]= useState()
-  const fetchthings=async()=>{
-    const token =localStorage.getItem("AdminToken")
-    if(!token){
-      alert("Not authorised")
+  const { id } = useParams();
+
+  const [blog, setblog] = useState();
+  const fetchthings = async () => {
+    const token = localStorage.getItem("AdminToken");
+    console.log(token);
+    if (!token) {
+      alert("Not authorised");
       return;
     }
 
-    const res= await fetch(`${host}/blogs/${id}`,{
-      method:"GET",
-      headers:{
-        token:token
-      }
-    })
-    const resdata= await res.json()
-    console.log(resdata)
-     setblog(resdata)
-  }
-  useEffect(()=>{
-    fetchthings()
-  },[])
+    const res = await fetch(`${host}/blogs/${id}`, {
+      method: "GET",
+      headers: {
+        token: token,
+      },
+    });
+    const resdata = await res.json();
+    console.log(resdata);
+    setblog(resdata);
+  };
+  useEffect(() => {
+    fetchthings();
+  }, []);
   return (
     <>
-    {blog ?
-      <div className=" flex flex-col  mx-[20%] mt-[5%] px-[30px] max-lg:mx-[2%] max-lg:px-[10px]">
-      <img
-        className="  h-[20rem] lg:h-[30rem] rounded-2xl mb-11"
-        src={blog.image ? blog.image : ""}
-        alt="Blog Image"
-      />
-      <div className="flex space-x-2">
-        <h5>Technology</h5>
-        <h5>|</h5>
-        <h5>{blog.createdAt.slice(0,10)}</h5>
-      </div>
-      <div className="flex space-x-3 my-5">
-        <img
-          className="rounded-full h-7 w-7  "
-          src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80"
-          alt="author image"
-        />
-        <div className="flex flex-col">
-          <h5 className="pt-1">{blog.author} </h5>
-          <div className="flex  pt-3 space-x-4 ">
-            <AiOutlineLike className=" h-5 w-5" />
-            <TfiCommentAlt className="h-5 w-5" />
-            <FaRegShareSquare className="h-5 w-5" />
+      {blog ? (
+        <div className=" flex flex-col  mx-[20%] mt-[5%] px-[30px] max-lg:mx-[2%] max-lg:px-[10px]">
+          <img
+            className="  h-[20rem] lg:h-[30rem] rounded-2xl mb-11"
+            src={blog.image ? blog.image : ""}
+            alt="BlogImage"
+          />
+          <div className="flex space-x-2">
+            <h5>Technology</h5>
+            <h5>|</h5>
+            <h5>{blog.createdAt.slice(0, 10)}</h5>
           </div>
-        </div>
-      </div>
-      <div>
-        <h1 className="my-11 text-4xl tracking-tight font-extrabold text-white-500 max-lg:text-3xl">
-          {blog.title}
-        </h1>
-        <prev className="leading-loose">
-          {blog.description}
-        </prev>
-      </div>
-      {/* tags  */}
-      {/* <div>
+          <div className="flex space-x-3 my-5">
+            <img
+              className="rounded-full h-7 w-7  "
+              src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+              alt="authorimage"
+            />
+            <div className="flex flex-col">
+              <h5 className="pt-1">{blog.author} </h5>
+              <div className="flex  pt-3 space-x-4 ">
+                <AiOutlineLike className=" h-5 w-5" />
+                <TfiCommentAlt className="h-5 w-5" />
+                <FaRegShareSquare className="h-5 w-5" />
+              </div>
+            </div>
+          </div>
+          <div>
+            <h1 className="my-11 text-4xl tracking-tight font-extrabold text-white-500 max-lg:text-3xl">
+              {blog.title}
+            </h1>
+            <prev className="leading-loose">{blog.description}</prev>
+          </div>
+          {/* tags  */}
+          {/* <div>
         <h3 className="texl-lg text-white my-11 underline-offset-8 underline decoration-wavy decoration-[#415ED0]">
           Tags:
         </h3>
@@ -86,8 +85,8 @@ const SingleBlog = () => {
         </ul>
       </div> */}
 
-      {/* comments  */}
-      {/* <div class="bg-gray-900 py-8 lg:py-16 antialiased rounded-lg my-11">
+          {/* comments  */}
+          {/* <div class="bg-gray-900 py-8 lg:py-16 antialiased rounded-lg my-11">
         <div class="max-w-2xl mx-auto px-4">
           <div class="flex justify-between items-center mb-6">
             <h2 class="text-lg lg:text-2xl font-bold text-white">Comments</h2>
@@ -115,13 +114,12 @@ const SingleBlog = () => {
           </form>
         </div>
       </div> */}
-    </div> 
-    : <div>
-      Loading
-    </div>
-  }
-  </>
-  )
+        </div>
+      ) : (
+        <div>Loading</div>
+      )}
+    </>
+  );
 };
 
 export default SingleBlog;

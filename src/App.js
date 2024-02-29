@@ -30,7 +30,7 @@ function App() {
           <Route path="/events" element={<Event />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/profile/:id" element={<ProfilePage />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
