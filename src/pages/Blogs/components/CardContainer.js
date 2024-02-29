@@ -19,7 +19,7 @@ const CardContainer = () => {
         blogs.map((blog) => (
           <Card
             image={blog.image}
-            content={blog.content}
+            content={blog.description}
             title={blog.title}
             author={blog.author}
             comments={blog.comments.length}

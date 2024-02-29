@@ -25,11 +25,8 @@ const AdminOperations = () => {
         setitems(temp)
         alert("deleted successfully")
 
+
     }
-    else{
-        alert("error")
-    }
-    
   };
 
   useEffect(() => {
@@ -96,7 +93,9 @@ const AdminOperations = () => {
                   </td>
                   <td className="p-4 border-b border-blue-gray-50">
                     <button className="block font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">
+
                       <UpdationModal variant={params.operation} id={e._id} element={e} />
+
                     </button>
                   </td>
                   <td className="p-4 border-b border-blue-gray-50">
