@@ -23,6 +23,7 @@ const CardContainer = () => {
             title={blog.title}
             author={blog.author}
             comments={blog.comments.length}
+            id={blog._id}
           />
         ))
       ) : (
