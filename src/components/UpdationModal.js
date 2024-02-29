@@ -7,7 +7,7 @@ import Admincontext from "../context/Admincontext";
 const UpdationModal = ({ id, variant , element}) => {
 
   const { variants } = useContext(Admincontext);
-  const host = "http://localhost:4000/";
+  const host = process.env.REACT_APP_BACKEND;
   const [showModal, setShowModal] = useState(false);
   const admin = localStorage.getItem("AdminToken");
 

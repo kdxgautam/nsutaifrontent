@@ -12,11 +12,7 @@ const ProfilePage = (props) => {
 
   useEffect(() => {
     const fetchProfile = async () => {
-      const token = localStorage.getItem("AdminToken");
-      if (!token) {
-        alert("Not authorised");
-        return;
-      }
+      const token = localStorage.getItem("AdminToken")
 
       try {
         const res = await fetch(`${host}/members/${id}`, {
