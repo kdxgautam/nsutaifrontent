@@ -10,7 +10,7 @@ const Admin = () => {
           console.log("no admin found")
             navigation("/admin/auth")
         }
-    })
+          })
   return (
     <div className='h-[80vh] p-10'>
       <h1 className='text-[3rem] flex w-full justify-center'>Admin Dashboard</h1>

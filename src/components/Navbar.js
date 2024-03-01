@@ -14,13 +14,10 @@ const Navbar = () => {
     localStorage.removeItem("AdminToken")
     setadmin(null)
     navigation("/admin/auth")
-  }
-  
+  } 
   const toggleNav = () => {
     setshowMobileNav(!showMobileNav)
   }
-  
-
   return (
     <nav className="sticky z-10 top-0 px-2 w-[98%] items-end shadow-xl text-white flex justify-between no-underline ">
       <div className="flex">
@@ -45,9 +42,6 @@ const Navbar = () => {
           </li>
           <li className="mx-2 cursor-pointer w-1/5  text-[1.1rem] font-light ">
             <Link to="/projects">Projects</Link>
-          </li>
-          <li className="mx-2 cursor-pointer w-1/5 text-center  text-[1.1rem] font-light ">
-            <Link to="/admin">Admin&nbsp;Panal </Link>
           </li>
         </ul>
       ) : (
@@ -78,6 +72,19 @@ const Navbar = () => {
             <Button bgColor="bg-[#415ED0]" bgOnhover="bg-blue-700">
               <Link to="/signup">Register</Link>
             </Button>
+
+            <div>
+              <Button
+                label="Admin Panal"
+                bgColor="bg-transparent"
+                border="border border-white"
+                bgOnhover="bg-white"
+                textOnhover="text-black"
+                textColor="text-white"
+              >
+                <Link to="/admin">Admin Panel</Link>
+              </Button>
+            </div>
           </div>
         )}
         {user && (
