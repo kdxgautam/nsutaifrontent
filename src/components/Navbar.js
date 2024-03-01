@@ -3,6 +3,7 @@ import Button from './Button'
 import { GiHamburgerMenu } from "react-icons/gi";
 import MobileNavbar from './MobileNavbar';
 import { Link, useNavigate } from 'react-router-dom';
+import "../index.css"
 
 import Authcontext from '../context/Authcontext';
 
@@ -55,7 +56,7 @@ const Navbar = () => {
       )}
 
       <div
-        className="sm:flex md:flex lg:hidden ml-auto text-xl py-5 justify-end"
+        className={`sm:flex md:flex lg:hidden ml-auto text-xl py-5 justify-end transform ${showMobileNav ? 'rotate-90' : ''} transition-transform duration-500 ease-in-out cursor-pointer`}
         onClick={() => toggleNav()}
       >
         <GiHamburgerMenu />
