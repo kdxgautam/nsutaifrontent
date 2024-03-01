@@ -41,6 +41,12 @@ const MobileNavbar = () => {
         <Link to="/projects">
         <li className='mx-5 px-3 cursor-pointer w-1/5 py-3 text-[1.1rem] font-light '>Projects</li>    
         </Link>
+        <Link to="/projects">
+        <li className='mx-5 px-3 cursor-pointer w-1/5 py-3 text-[1.1rem] font-light '>Projects</li>    
+        </Link>
+        <Link to="/admin">
+        <li className='mx-5 px-3 cursor-pointer w-1/5 py-3 text-[1.1rem] font-light '>Admin&nbsp;Panal</li>    
+        </Link>
         <div className='pt-3 py-2  gap-2  '>
 
 {!(admin || user) &&
