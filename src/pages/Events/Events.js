@@ -7,9 +7,6 @@ const Event = () => {
   const [events, setEvents] = useState([]);
  
 
-
-
-
   const fetchEvents = async () => {
     let res = await fetch(host + "/events/all");
     let resdata = await res.json();
@@ -25,9 +22,9 @@ const Event = () => {
       <div className="flex w-full justify-center items-center mt-28 pt-[70px] ">
         <div className="text-center  w-[450px] min-w-[300px] flex flex-col pl-7">
           <h1 className="text-[#BBBCC0] text-5xl lg:text-7xl">
-            Lorem ipsum dolor, sit amet
+          What are you waiting for register now!!
           </h1>
-          <h6 className="text-[#BBBCC0] mt-4">Lorem ipsum dolor, sit amet</h6>
+          <h6 className="text-[#BBBCC0] mt-4">Epic Events for Every Passion</h6>
         </div>
 
         <div className="w-1/2 items-center flex justify-center h-3/4 pr-[2vw]">
