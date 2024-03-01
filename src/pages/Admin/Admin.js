@@ -21,7 +21,7 @@ const Admin = () => {
             Blogs
         </div>
           </Link>
-          <Link to="/admin/blogs">
+          <Link to="/admin/events">
         <div className='border cursor-pointer p-10 text-2xl h-[10rem] w-[20rem] items-center flex justify-center rounded-xl'>
             Events
         </div>

@@ -43,7 +43,7 @@ const AdminState = (props) => {
         form.append("file",data);
         form.append("upload_preset", "nsut-ai");
         form.append("cloud_name", "djxl5ybch");
-
+        
         const res = await fetch(
             cloudlink,
             {
