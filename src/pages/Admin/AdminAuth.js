@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import Authcontext from "../../context/Authcontext";
 import { Link, useNavigate } from "react-router-dom";
-
+const host = process.env.REACT_APP_BACKEND
 
 const AdminAuth = () => {
   const [data, setdata] = useState({ email: "", password: "" });
@@ -17,7 +17,7 @@ const AdminAuth = () => {
     if(!localStorage.getItem("AdminToken")){
       return;
     }
-    const res= await fetch("http://localhost:4000/admin/login",{
+    const res= await fetch(`${host}/admin/login`,{
       method:"POST",
       headers:{
         "content-type":"application/json",
@@ -25,7 +25,7 @@ const AdminAuth = () => {
       }
     })
     const resdata = await res.json()
-    setadmin(resdata)
+    setadmin(resdata.admin)
   }
 
 

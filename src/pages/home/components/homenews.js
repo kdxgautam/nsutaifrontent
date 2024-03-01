@@ -5,10 +5,7 @@ const host = process.env.REACT_APP_BACKEND
 const HomeNews = () => {
     const [news, setnews] = useState([])
     const fetchnews = async () => {
-        if (!localStorage.getItem("AdminToken")) {
-            alert("Not Authorised")
-            return;
-        }
+    
         const res = await fetch(`${host}/news/all`, {
             method: "GET",
             headers: {
