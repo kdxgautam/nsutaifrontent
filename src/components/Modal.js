@@ -1,131 +1,111 @@
-import React, { useState } from "react";
-import { FaPlus } from "react-icons/fa";
-import { IoIosClose } from "react-icons/io";
+import React, { useContext, useState } from "react";
+import Admincontext from "../context/Admincontext";
+import { IoMdClose } from "react-icons/io";
+import Button from "./Button";
+const Modal = (props) => {
+    const { variant } = props;
+    const {
+        showmodal,
+        token,
+        settoken,
+        variants,
+        handleModalSubmit,
+        togglemodal,
+    } = useContext(Admincontext);
 
-const Modal = ({ details, data, setData }) => {
-  const host = "http://localhost:4000/";
-  const [showModal, setShowModal] = useState(false);
 
-  const onChange = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
-  };
+    const [data, setdata] = useState({ title: "", description: "", author: "", image: "", slug: "", department: "", github: "", venue: "" })
 
-  const submit = async (data) => {
-    const admin = localStorage.getItem("AdminToken");
+    const resetdata = () => {
+        setdata({ title: "", description: "", author: "", image: "", slug: "", department: "", github: "", venue: "" })
+    }
+    const handleonchange = async (e) => {
+        setdata({ ...data, [e.target.name.toLowerCase()]: e.target.value })
+        console.log(data)
+    }
 
-    const res = await fetch(`${host}${details.endpoint}`, {
-      method: "POST",
-      headers: {
-        "content-type": "Application/json",
-        token: admin,
-      },
-      body: JSON.stringify(data),
+
+
+
+
+    const handleimagechange = (e) => {
+        setdata({ ...data, image: e.target.files[0] });
+    };
+
+    const fetchtoken = () => {
+        settoken(localStorage.getItem("AdminToken"));
+        console.log(localStorage.getItem("AdminToken"));
+    };
+    useState(() => {
+        fetchtoken();
     });
-
-    console.log(await res.json());
-  };
-
-  const modalTrigger = () => {
-    setShowModal(!showModal);
-  };
-
-  return (
-    <div className="flex justify-center w-full">
-      <button
-        onClick={modalTrigger}
-        data-modal-toggle="#crud-modal"
-        class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        type="button"
-      >
-        Toggle modal
-      </button>
-
-      {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-filter backdrop-blur-sm  z-50">
-          <div
-            id="crud-modal"
-            tabIndex="-1"
-            aria-hidden="true"
-            class=" overflow-y-auto overflow-x-hidden fixed z-50 mt-5 bg-transparent w-full flex justify-center md:inset-0 h-[calc(100%-1rem)] max-h-full"
-          >
-            <div class="relative p-4 w-[80%] max-h-full ">
-              <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                  <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                    {details.modalTitle}
-                  </h3>
-                  <button
-                    onClick={modalTrigger}
-                    type="button"
-                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                    data-modal-toggle="#crud-modal"
-                  >
-                    <IoIosClose className="h-8 w-8" />
-                    <span class="sr-only">Close modal</span>
-                  </button>
-                </div>
-
-                <form class="p-4 md:p-5">
-                  <div class="grid gap-4 mb-4 grid-cols-2">
-                    {details.inputs.map((detail) => {
-                      return (
-                        <div class="col-span-2">
-                          <label
-                            for="name"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                          >
-                            {detail.title}
-                          </label>
-                          <input
-                            type={detail.type ? detail.type : "text"}
-                            name={detail.title}
-                            id="name"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            placeholder={detail.placeholder}
-                            onChange={onChange}
-                            value={data.value}
-                            required=""
-                          />
-                        </div>
-                      );
-                    })}
-                    <div class="col-span-2">
-                      <label
-                        for="description"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                      >
-                        Content/description
-                      </label>
-                      <textarea
-                        id="description"
-                        name="content"
-                        rows="4"
-                        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Write Content here"
-                        onChange={onChange}
-                        value={data.value}
-                      ></textarea>
+    return (
+        <div
+            className={`w-[98%] h-3/4  ${showmodal == false ? "hidden" : "flex"
+                } justify-center absolute z-20  `}
+        >
+            <div className="w-1/2   bg-gray-800  rounded-xl ">
+                <div className="relative flex flex-col p-5">
+                    <div
+                        className="text-red-400 absolute right-4 text-2xl cursor-pointer top-2"
+                        onClick={togglemodal}
+                    >
+                        <IoMdClose />
                     </div>
-                  </div>
-                  <button
-                    type="submit"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      submit(data);
+                    {variant &&
+                        variants[variant].inputs.text.map((t) => (
+                            <div className="my-2 flex flex-col">
+                                <label htmlFor={t} className="text-xl">
+                                    {t}
+                                </label>
+                                <input
+                                    type={t === "image" ? "file" : "text"}
+                                    name={t}
+                                    id={t}
+                                    onChange={t === "image" ? handleimagechange : handleonchange}
+                                    value={data.t}
+                                    placeholder={`Enter ${t}`}
+                                    className="p-2 rounded-xl text-xl text-black"
+                                />
+                            </div>
+                        ))}
+                </div>
+                <div className="flex flex-col p-5">
+                    {variant &&
+                        variants[variant].textarea.map((e) => (
+                            <div className="flex flex-col">
+                                <label htmlFor={e} className="text-xl">
+                                    {e}
+                                </label>
+                                <textarea
+                                    type="text"
+                                    name={e}
+                                    value={data.e}
+                                    onChange={handleonchange}
+                                    placeholder={`Enter ${e}`}
+                                    id={e}
+                                    rows={7}
+                                    cols={5}
+                                    className="p-2 rounded-xl text-xl text-black"
+                                />
+                            </div>
+                        ))}
+                </div>
+                <div
+                    className="flex p-4"
+                    onClick={() => {
+                        handleModalSubmit(data, "POST", variant, "create", token, setdata);
+                        resetdata();
                     }}
-                    class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                  >
-                    <FaPlus className="mr-1" />
-                    {details.buttonContent}
-                  </button>
-                </form>
-              </div>
+                >
+                    {variant &&
+                        variants[variant].button.map((e) => (
+                            <Button bgColor="bg-black">{e}</Button>
+                        ))}
+                </div>
             </div>
-          </div>
         </div>
-      )}
-    </div>
-  );
-};
+    );
 
+}
 export default Modal;
