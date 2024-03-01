@@ -7,11 +7,13 @@ import UpdationModal from "../../../components/UpdationModal";
 const host = "http://localhost:4000/";
 const AdminOperations = () => {
   const params = useParams();
-  
-  const { togglemodal , items, setitems, fetchthings} = useContext(Admincontext);
+
+  const { togglemodal, items, setitems, fetchthings } =
+    useContext(Admincontext);
   const { admin } = useContext(Authcontext);
   const navigation = useNavigate();
   const onDelete = async (id) => {
+    console.log(id);
     const res = await fetch(`${host}${params.operation}/${id}`, {
       method: "DELETE",
       headers: {
@@ -19,13 +21,11 @@ const AdminOperations = () => {
         token: localStorage.getItem("AdminToken"),
       },
     });
-    let resdata= await res.json()
-    if(resdata.success){
-        let temp= items.filter((item)=>item._id!==id)
-        setitems(temp)
-        alert("deleted successfully")
-
-
+    let resdata = await res.json();
+    if (resdata.success) {
+      let temp = items.filter((item) => item._id !== id);
+      setitems(temp);
+      alert("deleted successfully");
     }
   };
 
@@ -38,7 +38,9 @@ const AdminOperations = () => {
   return (
     <div className="h-[100vh] w-full flex flex-col px-5">
       <Modal variant={params.operation} />
-      <h1 className="w-full text-center text-2xl my-3">{params.operation.charAt(0).toUpperCase() + params.operation.substr(1)}</h1>
+      <h1 className="w-full text-center text-2xl my-3">
+        {params.operation.charAt(0).toUpperCase() + params.operation.substr(1)}
+      </h1>
 
       <h1 className="w-full  text-2xl my-3 text-white ">
         Create {params.operation}
@@ -88,14 +90,16 @@ const AdminOperations = () => {
                   </td>
                   <td className="p-4 border-b border-blue-gray-50">
                     <p className="block font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-                      {e.createdAt?.slice(0,10)}
+                      {e.createdAt?.slice(0, 10)}
                     </p>
                   </td>
                   <td className="p-4 border-b border-blue-gray-50">
                     <button className="block font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">
-
-                      <UpdationModal variant={params.operation} id={e._id} element={e} />
-
+                      <UpdationModal
+                        variant={params.operation}
+                        id={e._id}
+                        element={e}
+                      />
                     </button>
                   </td>
                   <td className="p-4 border-b border-blue-gray-50">

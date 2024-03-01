@@ -19,7 +19,7 @@ const Card = (props) => {
           {title}
         </h5>
         <p class="block font-sans text-white antialiased font-light leading-relaxed text-inherit">
-          {content}
+          {content.slice(0, 150)}...
         </p>
       </div>
       <div class="p-6 pt-0">

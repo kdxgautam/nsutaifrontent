@@ -7,12 +7,11 @@ const BlogHero = () => {
         <div class="w-full lg:w-1/2">
           <div class="my-10 lg:my-0 lg:px-10">
             <h2 class="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl text-center">
-              Get full access to our Blogs
+              Dive into a World of Insight
             </h2>
             <p class="mt-4 max-w-xl text-base leading-relaxed text-gray-300 text-center mx-auto">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
-              nesciunt eos facilis debitis voluptas iure consectetur odit fugit
-              voluptate recusandae?
+              Embark on a Captivating Journey: NSUT.AI Blog Unveiling the
+              Marvels of AI, One Post at a Time
             </p>
           </div>
         </div>
