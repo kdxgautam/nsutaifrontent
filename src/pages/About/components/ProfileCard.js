@@ -13,7 +13,7 @@ const ProfileCard = ({ key, id, name, image }) => {
           onClick={navig}
         >
           <img
-            className="rounded-full w-2/3 h-full "
+            className="rounded-full w-full h-full "
             alt="profilepicture"
             src={image}
           />

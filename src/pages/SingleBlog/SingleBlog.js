@@ -3,7 +3,7 @@ import { AiOutlineLike } from "react-icons/ai";
 import { TfiCommentAlt } from "react-icons/tfi";
 import { FaRegShareSquare } from "react-icons/fa";
 import { useParams } from "react-router-dom";
-const host = process.env.REACT_APP_BACKEND
+const host = process.env.REACT_APP_BACKEND;
 const SingleBlog = () => {
   const { id } = useParams();
 
