@@ -1,6 +1,6 @@
 import EventCard from "./components/EventCard";
 import { useEffect, useState } from "react";
-const host = 'http://localhost:4000'
+const host = process.env.REACT_APP_BACKEND;
 
 const Event = () => {
   
@@ -44,7 +44,7 @@ const Event = () => {
       <div className="flex flex-col w-full items-center my-20">
 
         
-        {events.length!==0 ? events.map((event)=>(<EventCard key={event._id} id={event._id} title = {event.title} description= {event.description} date = {event.date} image={event.image} status ={event.status}/>)) : <h1 className="text-white">No blogs found</h1> }
+        {events.length!==0 ? events.map((event)=>(<EventCard key={event._id} id={event._id} title = {event.title} description= {event.description} date = {event.date} image={event.image} status ={event.status}/>)) : <h1 className="text-white">No events found</h1> }
       
       </div>
     </>

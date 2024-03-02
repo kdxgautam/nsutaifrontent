@@ -83,7 +83,7 @@ const Navbar = () => {
                 textOnhover="text-black"
                 textColor="text-white"
               >
-                <Link to="/admin">Admin Panel</Link>
+                <Link to="/admin">Admin</Link>
               </Button>
             </div>
           </div>

@@ -84,7 +84,7 @@ const MobileNavbar = () => {
                     bgColor="bg-[#415ED0]"
                     bgOnhover="bg-blue-700"
                   >
-                    <Link to="/admin">Admin Panel</Link>
+                    <Link to="/admin">Admin</Link>
                   </Button>
                 </div>
               </div>
