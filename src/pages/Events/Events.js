@@ -1,6 +1,6 @@
-import{ EventCard} from "./components/EventCard";
-import { useEffect, useId, useState } from "react";
-const host = process.env.REACT_APP_BACKEND;
+import EventCard from "./components/EventCard";
+import { useEffect, useState } from "react";
+const host = 'http://localhost:4000'
 
 const Event = () => {
   

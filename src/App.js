@@ -27,6 +27,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<SingleBlog />} />
           <Route path="/events" element={<Event />} />
+          <Route path="/events/:eventid" element={<SingleBlog />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/profile/:id" element={<ProfilePage />} />

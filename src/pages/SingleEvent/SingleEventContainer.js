@@ -1,23 +1,38 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import SingleEventFunc from "./SingleEvent";
+
 const host= process.env.REACT_APP_BACKEND
 
 const SingleEventCardContainer = () => {
-  const [SingleEvents, setSingleEvents] = useState([]);
+  const [event, setEvent] = useState([]);
+  const {eventid} = useParams
 
-  const fetchsingleEvent = async () => {
-    let res = await fetch(host + "/events/all");
-    let resdata = await res.json();
-    setSingleEvents(resdata);
+  const fetchthings = async () => {
+    const token = localStorage.getItem("AdminToken");
+    console.log(token);
+    if (!token) {
+      alert("Not authorised");
+      return;
+    }
+
+    const res = await fetch(`${host}/events/${eventid}`, {
+      method: "GET",
+      headers: {
+        token: token,
+      },
+    });
+    const resdata = await res.json();
+    console.log(resdata);
+    setEvent(resdata);
   };
   useEffect(() => {
-    fetchsingleEvent();
+    fetchthings();
   }, []);
+
   return (
     <div className=" py-5 place-items-center grid-custom   ">
         
-      {SingleEvents.length !== 0 ? (
-        SingleEvents.map((event) => (
           <SingleEventFunc
             image={event.image}
             description={event.description}
@@ -26,10 +41,7 @@ const SingleEventCardContainer = () => {
             venue={event.venue}
             status={event.status}
           />
-        ))
-      ) : (
-        <h1 className="text-white">No events found</h1>
-      )}
+      
     </div>
   );
 };
